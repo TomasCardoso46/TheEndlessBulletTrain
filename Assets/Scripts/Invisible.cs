@@ -5,6 +5,8 @@ public class ToggleVisibility : MonoBehaviour
     private Renderer rend;
     private bool isVisible = true;
     public bool isInHidingPlace = false;
+    public string tag1 = "Player";
+    public string tag2 = "PlayerHidden";
 
     // Reference to the player's movement script (assuming it's called PlayerMovement)
     public PlayerMovement playerMovementScript;
@@ -21,6 +23,7 @@ public class ToggleVisibility : MonoBehaviour
         if (isInHidingPlace && Input.GetKeyDown(KeyCode.E))
         {
             Toggle();
+            ToggleTag();
         }
 
         // If the player is invisible, disable movement controls
@@ -51,6 +54,18 @@ public class ToggleVisibility : MonoBehaviour
         else
         {
             Debug.Log("Object is now invisible.");
+        }
+    }
+    void ToggleTag()
+    {
+        // Check the current tag and toggle it
+        if (gameObject.tag == tag1)
+        {
+            gameObject.tag = tag2;
+        }
+        else
+        {
+            gameObject.tag = tag1;
         }
     }
 }

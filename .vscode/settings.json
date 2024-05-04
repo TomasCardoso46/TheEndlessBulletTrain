@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "The Endless Bullet Train.sln"
+    "dotnet.defaultSolution": "TheEndlessBulletTrain.sln"
 }

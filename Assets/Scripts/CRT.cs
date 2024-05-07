@@ -1,27 +1,24 @@
 using UnityEngine;
 
-public class Follower : MonoBehaviour
+public class FollowPlayer : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float stopDistance = 1.0f;
-    public float contactTimeToTrigger = 3.0f; 
+    public float speed = 5.0f; 
+    public float followDistance = 0.5f; 
+    public float contactTimeThreshold = 3.0f; 
+    private float contactTimer = 0.0f;
+    private bool isInContact = false;
 
-    private Transform playerTransform;
-    private float contactTimer = 0.0f; 
-    private bool isInContact = false; 
+
+    private Transform playerTransform; 
 
     void Start()
     {
-       
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        if (player != null)
+        if (playerObject != null)
         {
-            playerTransform = player.transform;
-        }
-        else
-        {
-            Debug.LogError("Player not found. Make sure there's an object tagged 'Player'.");
+            playerTransform = playerObject.transform;
         }
     }
 
@@ -29,60 +26,63 @@ public class Follower : MonoBehaviour
     {
         if (playerTransform != null)
         {
-            float distance = Vector3.Distance(transform.position, playerTransform.position);
+           
+            Vector3 direction = playerTransform.position - transform.position;
+            float distance = direction.magnitude;
 
-            if (distance > stopDistance)
+            
+            if (distance > followDistance)
             {
-                
-                Vector3 direction = (playerTransform.position - transform.position).normalized;
+                direction.Normalize();
                 transform.position += direction * speed * Time.deltaTime;
             }
+        }
 
-            if (isInContact)
-            {
-                
-                contactTimer += Time.deltaTime;
+        if (isInContact)
+        {
+            
+            contactTimer += Time.deltaTime;
 
-               
-                if (contactTimer >= contactTimeToTrigger)
-                {
-                    OnPlayerKill();
-                }
-            }
-            else
+            
+            if (contactTimer >= contactTimeThreshold)
             {
-               
-                contactTimer = 0.0f;
+                DestroyPlayer();
             }
         }
+        else
+        {
+
+            contactTimer = 0.0f;
+        }
     }
+
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             isInContact = true; 
+            Debug.Log("Está em contacto");
         }
     }
-
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            isInContact = false; 
+            isInContact = false;
+            Debug.Log("Não está em contacto");
         }
     }
-
-    private void OnPlayerKill()
+    void DestroyPlayer()
     {
-        Debug.Log("Player has been in contact for too long! Action triggered.");
-        if (playerTransform != null)
-        {
-            
-            Destroy(playerTransform.gameObject);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-            
-            Debug.Log("Player has been destroyed.");
+        if (player != null)
+        {
+            Destroy(player);
         }
     }
 }
+
+    
+

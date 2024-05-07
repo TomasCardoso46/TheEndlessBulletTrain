@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HidingPlace
   - PlayerHidden
+  - ParryZone
   layers:
   - Default
   - TransparentFX

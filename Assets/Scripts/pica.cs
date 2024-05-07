@@ -31,7 +31,7 @@ public class pica : MonoBehaviour
             // If strikes reach 3, destroy the object
             if (GameManager.instance.strikes >= 3)
             {
-                Destroy(gameObject);
+                DestroyPlayer();
             }
         }
     }
@@ -50,5 +50,14 @@ public class pica : MonoBehaviour
 
         // Ensure the sprite is visible after blinking
         prefabSpriteRenderer.enabled = true;
+    }
+    void DestroyPlayer()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            Destroy(player);
+        }
     }
 }

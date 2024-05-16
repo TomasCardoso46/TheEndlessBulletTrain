@@ -11,6 +11,7 @@ public class YakuzaSpawner : MonoBehaviour
     [SerializeField]
     private int numberOfEnemies = 0;
     private bool startSpawn = false;
+    private bool canSpawn = true;
     private bool leftSpawner = false;
     // Update is called once per frame
     void Start()
@@ -19,9 +20,12 @@ public class YakuzaSpawner : MonoBehaviour
     }
     void Update()
     {
-        if (numberOfEnemies <=6 && startSpawn == true)
+        if (numberOfEnemies <=6 && startSpawn == true && canSpawn == true)
         {
-            StartEnemyTimer();
+            StartCoroutine(WaitForEnemies());
+            SpawnObject();
+            canSpawn = false;
+            SwitchSpawnPoint();
         }
     }
     public void SpawnObject()
@@ -33,12 +37,8 @@ public class YakuzaSpawner : MonoBehaviour
     IEnumerator WaitForEnemies()
     {
         yield return new WaitForSeconds(1.5f);
-        SpawnObject();
-        SwitchSpawnPoint();
-    }
-    public void StartEnemyTimer()
-    {
-        StartCoroutine(WaitForEnemies());
+        canSpawn = true;
+        
     }
     void OnTriggerEnter2D(Collider2D other)
     {

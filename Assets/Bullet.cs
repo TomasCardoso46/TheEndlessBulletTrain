@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
             GameManager.instance.health--;
 
             // If strikes reach 3, destroy the object
-            if (GameManager.instance.health <= 0)
+            if (Player.instance.health <= 0)
             {
                 DestroyPlayer();
             }

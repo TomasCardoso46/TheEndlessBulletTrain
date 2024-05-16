@@ -9,6 +9,7 @@ TagManager:
   - ParryZone
   - obstacle
   - Pica
+  - CRT
   layers:
   - Default
   - TransparentFX

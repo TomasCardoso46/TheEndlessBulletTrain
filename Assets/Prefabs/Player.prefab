@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: -4606433325895085815}
   - component: {fileID: 39103587431929697}
   - component: {fileID: 3850799324385304419}
+  - component: {fileID: 6077717530797534852}
   - component: {fileID: 8571013029754155829}
   m_Layer: 0
   m_Name: Player
@@ -300,6 +301,21 @@ MonoBehaviour:
   tag1: Player
   tag2: PlayerHidden
   playerMovementScript: {fileID: 39103587431929697}
+--- !u!114 &6077717530797534852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331595456998157782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742bcf256c4a98c4fbe5f98946c53e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  healthBar: {fileID: 0}
+  contactTimeThreshold: 3
 --- !u!95 &8571013029754155829
 Animator:
   serializedVersion: 5

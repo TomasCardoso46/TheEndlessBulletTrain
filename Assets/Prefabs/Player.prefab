@@ -100,6 +100,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4961104747289924926}
   flashInterval: 0.5
   duration: 3
+  SpawnPoint: {fileID: 0}
   objectToSpawn: {fileID: 4638431256998197294, guid: 5898b205ebfa0704d92206665b7a5182, type: 3}
   spawnPosition: {x: -15, y: -2.5, z: 0}
 --- !u!1 &7331595456998157782

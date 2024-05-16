@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
@@ -7,6 +8,7 @@ public class FollowPlayer : MonoBehaviour
     public float contactTimeThreshold = 3.0f;
     private float contactTimer = 0.0f;
     private bool isInContact = false;
+
 
 
     private Transform playerTransform;
@@ -47,8 +49,11 @@ public class FollowPlayer : MonoBehaviour
 
             if (contactTimer >= contactTimeThreshold)
             {
-                DestroyPlayer();
+                GameManager.instance.health += 1;
+                contactTimer = 0.0f;
+                return;
             }
+            
         }
         else
         {

@@ -7,12 +7,19 @@ public class BlinkingWarning : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public float flashInterval = 0.5f; // Interval between flashes in seconds
     public float duration = 3f; // Duration of the blinking effect
+    public Transform SpawnPoint;
     public GameObject objectToSpawn;
     public Vector3 spawnPosition;
+    
     // Call this method to start the blinking effect
     public void StartBlinking()
     {
         StartCoroutine(BlinkRoutine());
+    }
+
+    public void Start()
+    {
+        Vector3 spawnPosition = SpawnPoint.position;
     }
 
     IEnumerator BlinkRoutine()
@@ -42,7 +49,7 @@ public class BlinkingWarning : MonoBehaviour
     }
     public void SpawnObject()
     {
-        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+        Instantiate(objectToSpawn, SpawnPoint.position, Quaternion.identity);
     }
 
     

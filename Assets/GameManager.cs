@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance; // Singleton instance
 
-    public int health = 0; // Player health
+    public int health = 3; // Player health
     public int strikes = 0; // Number of strikes
     public SpriteRenderer playerSpriteRenderer;
     public GameObject playerPrefab;
+    public Image healthBar;
 
     void Awake()
     {
@@ -25,16 +27,20 @@ public class GameManager : MonoBehaviour
         }
         if (health == 3)
         {
-            DestroyPlayer();
+            healthBar.fillAmount = 1f;
         }
-    }
-    void DestroyPlayer()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player != null)
+        else if (health == 2)
         {
-            Destroy(player);
+            healthBar.fillAmount = 0.66f;
+        }
+        else if (health == 1)
+        {
+            healthBar.fillAmount = 0.33f;
+        }
+        else
+        {
+            healthBar.fillAmount = 0f;
         }
     }
+    
 }

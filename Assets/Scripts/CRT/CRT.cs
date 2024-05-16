@@ -49,9 +49,13 @@ public class FollowPlayer : MonoBehaviour
 
             if (contactTimer >= contactTimeThreshold)
             {
-                GameManager.instance.health += 1;
+                GameManager.instance.health -= 1;
                 contactTimer = 0.0f;
                 return;
+            }
+            if  (GameManager.instance.health <= 0)
+            {
+                DestroyPlayer();
             }
             
         }
@@ -88,4 +92,5 @@ public class FollowPlayer : MonoBehaviour
             Destroy(player);
         }
     }
+    
 }

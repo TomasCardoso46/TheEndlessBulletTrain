@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 845571470824116545}
   m_Layer: 0
   m_Name: Pica
-  m_TagString: Untagged
+  m_TagString: Pica
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

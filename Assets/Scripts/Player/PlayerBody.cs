@@ -66,6 +66,17 @@ public class PlayerBody : MonoBehaviour
             isInContact = true;
             Debug.Log("Está em contacto");
         }
+        if (other.CompareTag("Bullet"))
+        {
+            // Increase strikes in the GameManager
+            health--;
+
+            // If strikes reach 3, destroy the object
+            if (health <= 0)
+            {
+                DestroyPlayer();
+            }
+        }
     }
     void OnTriggerExit2D(Collider2D other)
     {

@@ -247,8 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa956449a266ba841bc2c4f7fac22ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnPoint: {fileID: 4739114946990792821}
   speed: 5
   followDistance: 9
+  bullet: {fileID: 7016542042611341071, guid: 389b83f1d2d2728498f5dda21971f483, type: 3}
+  fireRate: 3
 --- !u!1 &6876603231104785139
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class MarksmanMovement : MonoBehaviour
 {
+    public Transform SpawnPoint;
     public float speed = 5.0f;
     public float followDistance = 0.5f;
     private Transform playerTransform;
+    [SerializeField]
+    private GameObject bullet;
+    [SerializeField]
+    private int fireRate = 1;
     // Start is called before the first frame update
     void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        Vector3 spawnPosition = SpawnPoint.position;
 
         if (playerObject != null)
         {
@@ -33,7 +39,23 @@ public class MarksmanMovement : MonoBehaviour
                 direction.Normalize();
                 transform.position += direction * speed * Time.deltaTime;
             }
+            while (distance <= followDistance)
+                {
+                    
+                }
+
 
         }
     }
+    void ShootPlayer()
+        {
+
+         Instantiate(bullet, SpawnPoint.position, Quaternion.identity);
+         StartCoroutine(FireRate());
+    }
+    IEnumerator FireRate()
+    {
+        yield return new WaitForSeconds(fireRate);
+    }
+    
 }

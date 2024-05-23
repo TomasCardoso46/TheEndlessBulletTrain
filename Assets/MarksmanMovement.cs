@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MarksmanMovement : MonoBehaviour
@@ -10,8 +11,11 @@ public class MarksmanMovement : MonoBehaviour
     private Transform playerTransform;
     [SerializeField]
     private GameObject bullet;
+
     [SerializeField]
-    private int fireRate = 1;
+    private float fireRateBom = 0f;
+    [SerializeField]
+    public float fireRateThreshold = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,32 +36,36 @@ public class MarksmanMovement : MonoBehaviour
 
             Vector3 direction = playerTransform.position - transform.position;
             float distance = direction.magnitude;
-
-
             if (distance > followDistance)
             {
                 direction.Normalize();
                 transform.position += direction * speed * Time.deltaTime;
+                fireRateBom = 0;
             }
-            while (distance <= followDistance)
+
+            if (distance <= followDistance)
+            {
+                TimeIncrease();
+
+                if (fireRateBom >= fireRateThreshold)
                 {
-                ShootPlayer();
-                return;
+                    ShootPlayer();
+                    fireRateBom = 0.0f;
+                    return;
                 }
 
+            }
 
         }
-    }
-    void ShootPlayer()
+        void ShootPlayer()
         {
-        
-        Instantiate(bullet, SpawnPoint.position, Quaternion.identity);
-         
+
+            Instantiate(bullet, SpawnPoint.position, Quaternion.identity);
+
+        }
+        void TimeIncrease()
+        {
+            fireRateBom += Time.deltaTime;
+        }
     }
-    IEnumerator FireRate()
-    {
-        yield return new WaitForSeconds(fireRate);
-        StartCoroutine(FireRate());
-    }
-    
 }

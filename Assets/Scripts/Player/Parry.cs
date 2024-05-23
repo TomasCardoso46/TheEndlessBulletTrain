@@ -23,7 +23,7 @@ public class Parry : MonoBehaviour
 
             // Instantiate the object at the calculated position
             Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
-            
+
         }
     }
 }

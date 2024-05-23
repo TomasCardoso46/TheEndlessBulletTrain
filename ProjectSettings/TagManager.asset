@@ -10,6 +10,7 @@ TagManager:
   - obstacle
   - Pica
   - CRT
+  - Grab
   layers:
   - Default
   - TransparentFX

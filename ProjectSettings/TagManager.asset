@@ -11,6 +11,7 @@ TagManager:
   - Pica
   - CRT
   - Grab
+  - Bullet
   layers:
   - Default
   - TransparentFX

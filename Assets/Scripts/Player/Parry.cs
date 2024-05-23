@@ -16,10 +16,10 @@ public class Parry : MonoBehaviour
         // Check if the "F" key is pressed and the Player's Transform is set
         if (Input.GetKeyDown(KeyCode.F))
         {
-            animator.SetTrigger("Parry");
+            animator.SetTrigger($"Parry");
             // Calculate the spawn position with a slight offset to the left of the Player
             Vector3 spawnPosition = playerTransform.position;
-            spawnPosition.x -= leftOffset;
+            spawnPosition.x += leftOffset;
 
             // Instantiate the object at the calculated position
             Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);

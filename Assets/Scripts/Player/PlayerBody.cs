@@ -31,10 +31,6 @@ public class PlayerBody : MonoBehaviour
                 contactTimer = 0.0f;
                 return;
             }
-            if (health <= 0)
-            {
-                DestroyPlayer();
-            }
 
         }
         else
@@ -54,10 +50,13 @@ public class PlayerBody : MonoBehaviour
         {
             healthBar.fillAmount = 0.33f;
         }
-        if (health == 0)
+        if (health <= 0)
         {
             healthBar.fillAmount = 0f;
+            DestroyPlayer();
         }
+        
+
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -72,10 +71,6 @@ public class PlayerBody : MonoBehaviour
             health--;
 
             // If strikes reach 3, destroy the object
-            if (health <= 0)
-            {
-                DestroyPlayer();
-            }
         }
     }
     void OnTriggerExit2D(Collider2D other)

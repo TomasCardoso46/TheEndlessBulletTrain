@@ -41,7 +41,8 @@ public class MarksmanMovement : MonoBehaviour
             }
             while (distance <= followDistance)
                 {
-                    
+                ShootPlayer();
+                return;
                 }
 
 
@@ -49,13 +50,14 @@ public class MarksmanMovement : MonoBehaviour
     }
     void ShootPlayer()
         {
-
-         Instantiate(bullet, SpawnPoint.position, Quaternion.identity);
-         StartCoroutine(FireRate());
+        
+        Instantiate(bullet, SpawnPoint.position, Quaternion.identity);
+         
     }
     IEnumerator FireRate()
     {
         yield return new WaitForSeconds(fireRate);
+        StartCoroutine(FireRate());
     }
     
 }

@@ -190,7 +190,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 918142070414001267, guid: c247eac62d3535f4190179b4b49f28c6, type: 3}
       propertyPath: fireRateBom
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 918142070414001267, guid: c247eac62d3535f4190179b4b49f28c6, type: 3}
       propertyPath: fireRateThreshold

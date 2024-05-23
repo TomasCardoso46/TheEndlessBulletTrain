@@ -15,7 +15,9 @@ public class MarksmanMovement : MonoBehaviour
     [SerializeField]
     private float fireRateBom = 0f;
     [SerializeField]
-    public float fireRateThreshold = 3.0f;
+    public float fireRateThreshold = 1.5f;
+    [SerializeField]
+    public int shotsFired = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,10 +53,22 @@ public class MarksmanMovement : MonoBehaviour
                 {
                     ShootPlayer();
                     fireRateBom = 0.0f;
+                    shotsFired++;
                     return;
                 }
 
             }
+            if (shotsFired == 6)
+            {
+                fireRateThreshold = 3;
+            }
+            else if (shotsFired == 7) 
+            {
+                fireRateThreshold = 1.5f;
+                shotsFired = 1;
+            }
+                
+
 
         }
         void ShootPlayer()

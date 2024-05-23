@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
         if (other.CompareTag("ParryZone"))
         {
             Debug.Log("Contact with ParryZone detected.");
-            Destroy(gameObject);
+            speed = -15f;
         }
         if (other.CompareTag("Player"))
         {

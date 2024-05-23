@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: -6338448481781528878}
   - component: {fileID: 4592593945080863225}
   - component: {fileID: 918142070414001267}
+  - component: {fileID: 1628252895340417624}
   m_Layer: 0
   m_Name: Marksman
   m_TagString: Untagged
@@ -205,8 +206,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0.16522121, y: 0}
+  m_Size: {x: 0.6695576, y: 2}
   m_Direction: 0
 --- !u!50 &4592593945080863225
 Rigidbody2D:
@@ -251,7 +252,21 @@ MonoBehaviour:
   speed: 5
   followDistance: 9
   bullet: {fileID: 7016542042611341071, guid: 389b83f1d2d2728498f5dda21971f483, type: 3}
-  fireRate: 3
+  fireRateBom: 0
+  fireRateThreshold: 1.5
+  shotsFired: 0
+--- !u!114 &1628252895340417624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638431256998197294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ddf4d2831ae7d4cb13b181347b61ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6876603231104785139
 GameObject:
   m_ObjectHideFlags: 0

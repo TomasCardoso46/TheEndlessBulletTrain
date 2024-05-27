@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4592593945080863225}
   m_Layer: 0
   m_Name: Close Range Thug
-  m_TagString: Untagged
+  m_TagString: CRT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32adf6c98064f8439266c682c568716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  misfortune: 0
+  PlayerBodyScript: {fileID: 6077717530797534852, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
 --- !u!114 &130990685479332940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  followDistance: 1
-  contactTimeThreshold: 3
+  followDistance: 1.2
 --- !u!70 &-6338448481781528878
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -148,8 +149,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: -0.0025305748, y: 0}
+  m_Size: {x: 1.197381, y: 2}
   m_Direction: 0
 --- !u!50 &4592593945080863225
 Rigidbody2D:
@@ -190,7 +191,7 @@ GameObject:
   - component: {fileID: 4560923679737755431}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: CRT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,6 +243,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0023312569, y: -0.00000023841858}
-  m_Size: {x: 0.9965029, y: 1.9893513}
+  m_Offset: {x: 0.0073924065, y: -0.00000023841858}
+  m_Size: {x: 1.1483355, y: 1.9893513}
   m_Direction: 0

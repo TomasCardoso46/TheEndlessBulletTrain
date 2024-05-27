@@ -9,7 +9,8 @@ public class PlayerBody : MonoBehaviour
     public Image healthBar;
     private bool isInContact = false;
     public float contactTimeThreshold = 3.0f;
-    private float contactTimer = 0.0f;
+    [SerializeField]
+    public float contactTimer = 0.0f;
     // Start is called before the first frame update
     void Start()
     {

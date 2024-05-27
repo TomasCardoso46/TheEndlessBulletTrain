@@ -20,7 +20,7 @@ public class YakuzaSpawner : MonoBehaviour
     }
     void Update()
     {
-        if (numberOfEnemies <=6 && startSpawn == true && canSpawn == true)
+        if (numberOfEnemies <=1 && startSpawn == true && canSpawn == true)
         {
             StartCoroutine(WaitForEnemies());
             SpawnObject();

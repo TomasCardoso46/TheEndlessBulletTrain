@@ -171,4 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e5f0fa87ecbd4439b222b9f3fdedd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleVisibilityScript: {fileID: 0}
+  toggleVisibilityScript: {fileID: 3850799324385304419, guid: 1dda70006174c524796c1f148b1865fb, type: 3}

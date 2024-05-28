@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8bb977d315e002e47b4ce6ed24acc6d1
+guid: 11480c103db3dab4da0fe1a2a76df189
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,11 +106,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite1_Player_Parry-Sheet_0
+      name: Sprite1_Player_Idle-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 940283d4d7a23684384437e6d08ab80a
-      internalID: 694504610
+      spriteID: 5de47254d6f2309438f2922fcce95e95
+      internalID: 206757391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite1_Player_Parry-Sheet_1
+      name: Sprite1_Player_Idle-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a770b4b8c7711a4fad5d732aacb66d3
-      internalID: -1581251754
+      spriteID: 58c38059117dd4b44826d3c008b06d10
+      internalID: 961841924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite1_Player_Parry-Sheet_2
+      name: Sprite1_Player_Idle-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 963ecd459d38d4e42b33908064112878
-      internalID: -1947978992
+      spriteID: dd019f3b97049fc408f36be49d958c4d
+      internalID: 944304793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite1_Player_Parry-Sheet_3
+      name: Sprite1_Player_Idle-Sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,71 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c19a4b6dfb38fb4c840babe2e24bf46
-      internalID: -861725719
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite1_Player_Parry-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d0bdf2e5f48484245a62f0eb40e02d5a
-      internalID: -691529589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite1_Player_Parry-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 894829de2750533478dca4c1546b9606
-      internalID: -1021474364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite1_Player_Parry-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4d47b3056a45b64a961b5b4f5ac563e
-      internalID: -1870349829
+      spriteID: c656980e16457fc429c9d5daaac00477
+      internalID: -1943808699
       vertices: []
       indices: 
       edges: []
@@ -267,13 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite1_Player_Parry-Sheet_0: 694504610
-      Sprite1_Player_Parry-Sheet_1: -1581251754
-      Sprite1_Player_Parry-Sheet_2: -1947978992
-      Sprite1_Player_Parry-Sheet_3: -861725719
-      Sprite1_Player_Parry-Sheet_4: -691529589
-      Sprite1_Player_Parry-Sheet_5: -1021474364
-      Sprite1_Player_Parry-Sheet_6: -1870349829
+      Sprite1_Player_Idle-Sheet_0: 206757391
+      Sprite1_Player_Idle-Sheet_1: 961841924
+      Sprite1_Player_Idle-Sheet_2: 944304793
+      Sprite1_Player_Idle-Sheet_3: -1943808699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

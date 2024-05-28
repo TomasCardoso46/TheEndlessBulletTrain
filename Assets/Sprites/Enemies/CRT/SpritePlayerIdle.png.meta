@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c6336c9a91dca544aa80379e4aa12263
+guid: 6c66fe5d7dca22b42a740091ad9705b6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite1_Player-Sheet_0
+      name: SpritePlayerIdle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69e8115de0d0e0d4eb81dc91a257e153
-      internalID: 514003516
+      spriteID: ee382f331da170f499fb17233b8aef45
+      internalID: -1879840599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite1_Player-Sheet_1
+      name: SpritePlayerIdle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a37b36ae3b9c1bf4e9962eb5fab2015b
-      internalID: -254009576
+      spriteID: aabbc274182e2b649a89528f748ae287
+      internalID: -676514991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite1_Player-Sheet_2
+      name: SpritePlayerIdle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd8f29edb2a18964eb55db5c7c1ca8d9
-      internalID: -1370526423
+      spriteID: 09ff02103f1cd2040af78cb7ab30f597
+      internalID: 1038202881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite1_Player-Sheet_3
+      name: SpritePlayerIdle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,71 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f6109b1602ea6041a16f72aad43423a
-      internalID: 1147301496
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite1_Player-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aede6dd041b93c14dbc1457add3fe1d8
-      internalID: -1283833670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite1_Player-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc51b0c8d85dd7c42a3df1e461c78dc6
-      internalID: -289867995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite1_Player-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25b9c636c02d32544ac5b4c0101a7182
-      internalID: -1056188989
+      spriteID: 694d51c949072af46b1bde253211464b
+      internalID: 1446134663
       vertices: []
       indices: 
       edges: []
@@ -267,13 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite1_Player-Sheet_0: 514003516
-      Sprite1_Player-Sheet_1: -254009576
-      Sprite1_Player-Sheet_2: -1370526423
-      Sprite1_Player-Sheet_3: 1147301496
-      Sprite1_Player-Sheet_4: -1283833670
-      Sprite1_Player-Sheet_5: -289867995
-      Sprite1_Player-Sheet_6: -1056188989
+      SpritePlayerIdle_0: -1879840599
+      SpritePlayerIdle_1: -676514991
+      SpritePlayerIdle_2: 1038202881
+      SpritePlayerIdle_3: 1446134663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

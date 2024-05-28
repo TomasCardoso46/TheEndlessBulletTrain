@@ -11,6 +11,7 @@ public class PlayerBody : MonoBehaviour
     public float contactTimeThreshold = 3.0f;
     [SerializeField]
     public float contactTimer = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,6 @@ public class PlayerBody : MonoBehaviour
         {
 
             contactTimer += Time.deltaTime;
-
 
             if (contactTimer >= contactTimeThreshold)
             {
@@ -64,7 +64,7 @@ public class PlayerBody : MonoBehaviour
         if (other.CompareTag("CRT"))
         {
             isInContact = true;
-            Debug.Log("Está em contacto");
+            Debug.Log("Estï¿½ em contacto");
         }
         if (other.CompareTag("Bullet"))
         {
@@ -79,7 +79,7 @@ public class PlayerBody : MonoBehaviour
         if (other.CompareTag("CRT"))
         {
             isInContact = false;
-            Debug.Log("Não está em contacto");
+            Debug.Log("Nï¿½o estï¿½ em contacto");
         }
     }
     void DestroyPlayer()

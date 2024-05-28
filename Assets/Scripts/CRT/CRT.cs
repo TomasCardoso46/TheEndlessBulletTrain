@@ -6,10 +6,6 @@ public class FollowPlayer : MonoBehaviour
     public Animator animator;
     public float speed = 5.0f;
     public float followDistance = 0.5f;
-
-
-
-
     private Transform playerTransform;
 
     void Start()
@@ -36,12 +32,10 @@ public class FollowPlayer : MonoBehaviour
                 transform.position += direction * speed * Time.deltaTime;
 
                 animator.SetBool("IsMoving", true);
-                animator.SetBool("IsAttacking", false);
             }
             else
             {
                 animator.SetBool("IsMoving", false);
-                animator.SetBool("IsAttacking", true);
             }
 
         }

@@ -67,6 +67,7 @@ public class ObjectGrabber : MonoBehaviour
     }
     private void ThrowObject()
     {
+        
         if (objectInHand && objectToGrab != null)
         {
             // Detach the object from the player
@@ -74,16 +75,22 @@ public class ObjectGrabber : MonoBehaviour
 
             // Enable the Rigidbody2D component to allow physics interactions
             Rigidbody2D rb = objectToGrab.GetComponent<Rigidbody2D>();
-            if (rb != null)
+            if (rb == null)
             {
-                rb.isKinematic = false; // Ensure the object is affected by physics
-                rb.AddForce(transform.right * throwForce, ForceMode2D.Impulse); // Apply force to throw the object
+                rb = objectToGrab.AddComponent<Rigidbody2D>(); // Add Rigidbody2D if it doesn't exist
             }
+            rb.isKinematic = false; // Ensure the object is affected by physics
+            rb.velocity = Vector2.zero; // Reset velocity before applying force
+
+            // Apply force to throw the object
+            Vector2 throwDirection = new Vector2(transform.localScale.x, 0); // Adjust the direction based on the player's facing direction
+            rb.AddForce(throwDirection * throwForce, ForceMode2D.Impulse);
 
             // Clear the held object reference and update the boolean
-            objectToGrab = null;
+            
             objectInHand = false;
         }
+       
     }
 
     private void ReleaseObject()

@@ -7,8 +7,10 @@ public class ObjectGrabber : MonoBehaviour
 
     // Reference to the player's feet position
     public Transform playerFeet;
-
+    private bool objectInHand = false;
     private bool canGrab = false;
+    [SerializeField]
+    private int throwForce = 5;
     private GameObject objectToGrab = null;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -37,9 +39,15 @@ public class ObjectGrabber : MonoBehaviour
         {
             GrabObject();
         }
+        
         else if (canGrab && Input.GetKeyDown(KeyCode.Q) && objectToGrab != null)
         {
             ReleaseObject();
+        }
+
+        if (objectInHand && Input.GetKeyDown(KeyCode.T) && objectToGrab == null)
+        {
+            ThrowObject();
         }
     }
 
@@ -52,8 +60,29 @@ public class ObjectGrabber : MonoBehaviour
             {
                 objectToGrab.transform.position = grabbingPosition.position;
                 objectToGrab.transform.SetParent(grabbingPosition);
+                objectInHand = true;
                 Debug.Log("Object grabbed.");
             }
+        }
+    }
+    private void ThrowObject()
+    {
+        if (objectInHand && objectToGrab != null)
+        {
+            // Detach the object from the player
+            objectToGrab.transform.SetParent(null);
+
+            // Enable the Rigidbody2D component to allow physics interactions
+            Rigidbody2D rb = objectToGrab.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.isKinematic = false; // Ensure the object is affected by physics
+                rb.AddForce(transform.right * throwForce, ForceMode2D.Impulse); // Apply force to throw the object
+            }
+
+            // Clear the held object reference and update the boolean
+            objectToGrab = null;
+            objectInHand = false;
         }
     }
 
@@ -65,6 +94,7 @@ public class ObjectGrabber : MonoBehaviour
             Vector3 releasePosition = objectToGrab.transform.position;
             releasePosition.y = playerFeet.position.y;
             objectToGrab.transform.position = releasePosition;
+            objectInHand = false;
             Debug.Log("Object released and Y position set to player's feet.");
             objectToGrab = null;
         }

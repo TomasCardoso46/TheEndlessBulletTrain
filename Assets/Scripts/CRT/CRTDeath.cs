@@ -5,8 +5,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 {
     [SerializeField]
     private float misfortune;
-    public PlayerBody PlayerBodyScript;
-    public int health = 3; // Player health
+    public FollowPlayer CTRScript;
     public Image Misfortune;
 
     public void Update()
@@ -14,7 +13,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 
         if (misfortune == 0)
         {
-            Misfortune.fillAmount = 0f;
+            Misfortune.fillAmount = 0.001f;
         }
         if (misfortune == 1)
         {
@@ -41,18 +40,13 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         Debug.Log($"Other object's tag: {other.tag}");
 
         // Check if PlayerBodyScript is assigned
-        if (PlayerBodyScript == null)
-        {
-            Debug.LogError("PlayerBodyScript is not assigned!");
-            return;
-        }
 
 
         // If the object collides with something tagged "ParryZone," destroy this GameObject
-        if (other.CompareTag("ParryZone") && PlayerBodyScript.contactTimer >= 1.5f)
+        if (other.CompareTag("ParryZone") && CTRScript.contactTimer >= 1.5f)
         {
             Debug.Log("Contact with ParryZone detected.");
-            PlayerBodyScript.contactTimer = 0;
+            CTRScript.contactTimer = 0;
             misfortune += 1;
             
         }

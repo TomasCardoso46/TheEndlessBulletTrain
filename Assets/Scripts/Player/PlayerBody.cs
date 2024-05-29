@@ -15,22 +15,22 @@ public class PlayerBody : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateUI()
     {
+        //Troquem pra switch case
         if (health == 3)
         {
             healthBar.fillAmount = 1f;
         }
-        if (health == 2)
+        else if (health == 2)
         {
             healthBar.fillAmount = 0.66f;
         }
-        if (health == 1)
+        else if (health == 1)
         {
             healthBar.fillAmount = 0.33f;
         }
-        if (health <= 0)
+        else if (health <= 0)
         {
             healthBar.fillAmount = 0f;
             DestroyPlayer();
@@ -38,17 +38,18 @@ public class PlayerBody : MonoBehaviour
         
 
     }
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bullet"))
         {
             // Increase strikes in the GameManager
             health--;
+            UpdateUI();
 
             // If strikes reach 3, destroy the object
         }
     }
-    void DestroyPlayer()
+    private void DestroyPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
@@ -57,6 +58,4 @@ public class PlayerBody : MonoBehaviour
             Object.Destroy(player);
         }
     }
-
-
 }

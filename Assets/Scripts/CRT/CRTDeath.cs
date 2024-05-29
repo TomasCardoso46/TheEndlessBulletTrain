@@ -8,22 +8,22 @@ public class DestroyOnParryZoneContact : MonoBehaviour
     public FollowPlayer CTRScript;
     public Image Misfortune;
 
-    public void Update()
+    private void UpdateUI()
     {
-
-        if (misfortune == 0)
+        //Troquem pra switch case
+        if (misfortune == 0) 
         {
             Misfortune.fillAmount = 0.001f;
         }
-        if (misfortune == 1)
+        else if (misfortune == 1)
         {
             Misfortune.fillAmount = 0.33f;
         }
-        if (misfortune == 2)
+        else if (misfortune == 2)
         {
             Misfortune.fillAmount = 0.66f;
         }
-        if (misfortune == 3)
+        else if (misfortune == 3)
         {
             Misfortune.fillAmount = 1f;
             DestroyUI();
@@ -48,7 +48,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             Debug.Log("Contact with ParryZone detected.");
             CTRScript.contactTimer = 0;
             misfortune += 1;
-            
+            UpdateUI();
         }
         else
         {

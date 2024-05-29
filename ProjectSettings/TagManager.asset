@@ -12,6 +12,7 @@ TagManager:
   - CRT
   - Grab
   - Bullet
+  - Misfortune
   layers:
   - Default
   - TransparentFX

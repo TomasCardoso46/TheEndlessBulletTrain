@@ -1,10 +1,36 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DestroyOnParryZoneContact : MonoBehaviour
 {
     [SerializeField]
     private float misfortune;
     public PlayerBody PlayerBodyScript;
+    public int health = 3; // Player health
+    public Image Misfortune;
+
+    public void Update()
+    {
+
+        if (misfortune == 0)
+        {
+            Misfortune.fillAmount = 0f;
+        }
+        if (misfortune == 1)
+        {
+            Misfortune.fillAmount = 0.33f;
+        }
+        if (misfortune == 2)
+        {
+            Misfortune.fillAmount = 0.66f;
+        }
+        if (misfortune == 3)
+        {
+            Misfortune.fillAmount = 1f;
+            DestroyUI();
+            Destroy(gameObject);
+        }
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -21,19 +47,6 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             return;
         }
 
-        // Log the contactTimer value
-        Debug.Log($"contactTimer: {PlayerBodyScript.contactTimer}");
-
-        if (other.CompareTag("ParryZone"))
-        {
-            Debug.Log("1");
-
-
-        }
-        if (PlayerBodyScript.contactTimer >= 1.5f)
-        {
-            Debug.Log("2");
-        }
 
         // If the object collides with something tagged "ParryZone," destroy this GameObject
         if (other.CompareTag("ParryZone") && PlayerBodyScript.contactTimer >= 1.5f)
@@ -47,9 +60,19 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         {
             Debug.Log("No ParryZone tag detected or contactTimer is too low.");
         }
-        if (misfortune >= 3)
+
+    }
+
+    void DestroyUI()
+    {
+        GameObject Misfortune = GameObject.FindGameObjectWithTag("Misfortune");
+
+        if (Misfortune != null)
         {
-            Destroy(gameObject);
+            Object.Destroy(Misfortune);
         }
     }
+
+
+
 }

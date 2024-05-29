@@ -200,6 +200,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3619287454653239559, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619287454653239559, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: Misfortune
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619287454653239559, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: PlayerBodyScript
       value: 
       objectReference: {fileID: 329889289}
@@ -1231,10 +1239,10 @@ SceneRoots:
   - {fileID: 1595840937}
   - {fileID: 1798842690278589470}
   - {fileID: 2022874465}
-  - {fileID: 6015559789848116421}
   - {fileID: 1070891798}
   - {fileID: 1712914557}
   - {fileID: 1269902474}
   - {fileID: 1500162324}
   - {fileID: 923038087}
   - {fileID: 601417686}
+  - {fileID: 6015559789848116421}

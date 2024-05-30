@@ -13,7 +13,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         //Troquem pra switch case
         if (misfortune == 0) 
         {
-            Misfortune.fillAmount = 0.001f;
+            Misfortune.fillAmount = 0f;
         }
         else if (misfortune == 1)
         {

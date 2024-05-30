@@ -298,8 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   healthBar: {fileID: 0}
-  contactTimeThreshold: 3
-  contactTimer: 0
+  isInContact: 0
 --- !u!114 &-4459976609663490132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabbingPosition: {fileID: 2873160601472473274}
   playerFeet: {fileID: 8458018532753753470}
+  throwForce: 5
 --- !u!212 &5466790996660397378
 SpriteRenderer:
   m_ObjectHideFlags: 0

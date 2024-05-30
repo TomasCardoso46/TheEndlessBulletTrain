@@ -15,7 +15,7 @@ public class PlayerBody : MonoBehaviour
 
     }
 
-    private void UpdateUI()
+    private void Update()
     {
         //Troquem pra switch case
         if (health == 3)
@@ -44,7 +44,7 @@ public class PlayerBody : MonoBehaviour
         {
             // Increase strikes in the GameManager
             health--;
-            UpdateUI();
+            Update();
 
             // If strikes reach 3, destroy the object
         }
@@ -52,10 +52,6 @@ public class PlayerBody : MonoBehaviour
     private void DestroyPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player != null)
-        {
-            Object.Destroy(player);
-        }
+            Object.Destroy(player);     
     }
 }

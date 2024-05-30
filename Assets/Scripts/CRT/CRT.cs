@@ -43,7 +43,7 @@ public class FollowPlayer : MonoBehaviour
             {
                 contactTimer += Time.deltaTime;
 
-                if (contactTimer >= contactTimeThreshold - 0.8)
+                if (contactTimer >= contactTimeThreshold)
                 {
                     animator.SetBool("IsAttacking", true);
                 }

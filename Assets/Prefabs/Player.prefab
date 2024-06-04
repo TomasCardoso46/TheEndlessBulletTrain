@@ -165,6 +165,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2951748425596987980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5206820563146333994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6321204601907068279}
+  m_Layer: 0
+  m_Name: ThrowSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6321204601907068279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5206820563146333994}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07, y: -0.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2951748425596987980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5846132479405564125
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,8 +239,8 @@ GameObject:
   - component: {fileID: -4606433325895085815}
   - component: {fileID: 39103587431929697}
   - component: {fileID: 6392565637204106373}
+  - component: {fileID: -5344070472957621020}
   - component: {fileID: 6077717530797534852}
-  - component: {fileID: -4459976609663490132}
   - component: {fileID: 5466790996660397378}
   - component: {fileID: 7235243046560689532}
   - component: {fileID: 2427240999126990486}
@@ -238,6 +269,7 @@ Transform:
   - {fileID: 2873160601472473274}
   - {fileID: 8458018532753753470}
   - {fileID: 5309022945545566934}
+  - {fileID: 6321204601907068279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-4606433325895085815
@@ -284,6 +316,25 @@ MonoBehaviour:
   tag1: Player
   tag2: PlayerHidden
   playerMovementScript: {fileID: 39103587431929697}
+--- !u!114 &-5344070472957621020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331595456998157782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94dab1e27edd761479e55a192292bbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlaceDownPrefab: {fileID: 0}
+  ThrowPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  alternateSpawnPoint: {fileID: 0}
+  throwForce: 10
+  canGrab: 0
+  hasObject: 0
 --- !u!114 &6077717530797534852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,21 +350,6 @@ MonoBehaviour:
   health: 3
   healthBar: {fileID: 0}
   isInContact: 0
---- !u!114 &-4459976609663490132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7331595456998157782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d63e6c12e1cc8614fb28adbcd223f3e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabbingPosition: {fileID: 2873160601472473274}
-  playerFeet: {fileID: 8458018532753753470}
-  throwForce: 5
 --- !u!212 &5466790996660397378
 SpriteRenderer:
   m_ObjectHideFlags: 0

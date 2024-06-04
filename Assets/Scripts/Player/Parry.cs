@@ -8,6 +8,7 @@ public class Parry : MonoBehaviour
     public Transform playerTransform; // The Player's Transform, set via the Inspector
     private Animator animator;
     private bool canParry = true; // Bool to track if parry is available
+    public GrabObject GrabScript;
 
     void Start()
     {
@@ -17,10 +18,12 @@ public class Parry : MonoBehaviour
     void Update()
     {
         // Check if the "F" key is pressed, the Player's Transform is set, and parry is available
-        if (Input.GetKeyDown(KeyCode.F) && canParry)
+        if (Input.GetKeyDown(KeyCode.F) && canParry && GrabScript.hasObject == true)
         {
             StartCoroutine(ParryAction());
+            GrabScript.hasObject = false;
         }
+         
     }
 
     private IEnumerator ParryAction()

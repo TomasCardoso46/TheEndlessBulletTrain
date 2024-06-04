@@ -102,4 +102,10 @@ public class FollowPlayer : MonoBehaviour
             }
         }
     }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        PlayerBodyScript.isInContact = false;
+        contactTimer = 0.0f;
+        return;
+    }
 }

@@ -46,7 +46,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             misfortune += 1;
             UpdateUI();
         }
-        else if (other.CompareTag("Grab"))
+        else if (other.CompareTag("Throw"))
         {
             Debug.Log("Contact with ParryZone detected.");
             misfortune += 1;

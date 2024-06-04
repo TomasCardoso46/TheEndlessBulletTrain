@@ -11,7 +11,7 @@ public class GrabObject : MonoBehaviour
     [SerializeField] private float throwForce = 10f; // Force to apply when throwing the object
 
     [SerializeField] private bool canGrab = false;
-    [SerializeField] private bool hasObject = false;
+    [SerializeField] public bool hasObject = false;
     private GameObject grabbedObject; // Reference to the grabbed object
 
     private void Start()

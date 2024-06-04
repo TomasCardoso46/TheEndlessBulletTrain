@@ -17,13 +17,9 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         }
         else if (misfortune == 1)
         {
-            Misfortune.fillAmount = 0.33f;
+            Misfortune.fillAmount = 0.50f;
         }
         else if (misfortune == 2)
-        {
-            Misfortune.fillAmount = 0.66f;
-        }
-        else if (misfortune == 3)
         {
             Misfortune.fillAmount = 1f;
             DestroyUI();

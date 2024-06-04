@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 673472298422035975}
   - component: {fileID: -2596037254523007383}
   m_Layer: 0
-  m_Name: Item
+  m_Name: Throw
   m_TagString: Grab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7697197777443490995}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

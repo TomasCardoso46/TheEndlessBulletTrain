@@ -5,7 +5,7 @@ using UnityEngine;
 public class GrabObject : MonoBehaviour
 {
     [SerializeField] private GameObject PlaceDownPrefab; // Prefab to spawn
-    [SerializeField] private GameObject ThrowPrefab; // Prefab to spawn
+    [SerializeField] private GameObject ThrowPrefab; // Prefab to throw
     [SerializeField] private GameObject spawnPoint; // Primary spawn point for the new object
     [SerializeField] private GameObject alternateSpawnPoint; // Alternate spawn point for the new object
     [SerializeField] private float throwForce = 10f; // Force to apply when throwing the object
@@ -60,7 +60,6 @@ public class GrabObject : MonoBehaviour
                 PlaceDownObject(spawnPoint.transform.position, spawnPoint.transform.rotation);
                 hasObject = false;
             }
-            
         }
     }
 
@@ -69,11 +68,11 @@ public class GrabObject : MonoBehaviour
         if (PlaceDownPrefab != null)
         {
             grabbedObject = Instantiate(PlaceDownPrefab, position, rotation);
-            Debug.Log("Object spawned at primary spawn point.");
+            Debug.Log("Object placed down at primary spawn point.");
         }
         else
         {
-            Debug.LogError("Object prefab is not assigned.");
+            Debug.LogError("PlaceDownPrefab is not assigned.");
         }
     }
 
@@ -85,7 +84,14 @@ public class GrabObject : MonoBehaviour
             Rigidbody2D rb = grabbedObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.AddForce(rotation * Vector2.right * throwForce, ForceMode2D.Impulse);
+                // Set gravity scale to 0 to ignore gravity
+                rb.gravityScale = 0;
+
+                // Calculate throw direction based on player's direction
+                Vector2 throwDirection = new Vector2(transform.localScale.x, 0); // Assuming x scale < 0 when facing left
+
+                // Apply force in the calculated direction
+                rb.AddForce(throwDirection.normalized * throwForce, ForceMode2D.Impulse);
                 Debug.Log("Object spawned and thrown from alternate spawn point.");
             }
             else
@@ -95,7 +101,7 @@ public class GrabObject : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Object prefab is not assigned.");
+            Debug.LogError("ThrowPrefab is not assigned.");
         }
     }
 }

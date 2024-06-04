@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class DestroyOnParryZoneContact : MonoBehaviour
 {
     [SerializeField]
-    private float misfortune;
+    public float misfortune;
     public FollowPlayer CTRScript;
     public Image Misfortune;
 
@@ -43,6 +43,12 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         {
             Debug.Log("Contact with ParryZone detected.");
             CTRScript.contactTimer = 0;
+            misfortune += 1;
+            UpdateUI();
+        }
+        else if (other.CompareTag("Grab"))
+        {
+            Debug.Log("Contact with ParryZone detected.");
             misfortune += 1;
             UpdateUI();
         }

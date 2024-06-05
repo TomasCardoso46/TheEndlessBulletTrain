@@ -171,6 +171,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32adf6c98064f8439266c682c568716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &362791070 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4592593945080863225, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+  m_PrefabInstance: {fileID: 615026594}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &438112911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -299,9 +304,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: enemyRb
+      value: 
+      objectReference: {fileID: 362791070}
+    - target: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: EKBForce
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: EKBTotalTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 2096994544}
+    - target: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: PlayerBodyScript
       value: 
       objectReference: {fileID: 1035839174}
+    - target: {fileID: 3619287454653239559, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: crt
+      value: 
+      objectReference: {fileID: 362791067}
     - target: {fileID: 3619287454653239559, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: CTRScript
       value: 
@@ -328,11 +353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6109100265650869312, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.2746916
+      value: -8.28
       objectReference: {fileID: 0}
     - target: {fileID: 6109100265650869312, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3957834
+      value: -3.12
       objectReference: {fileID: 0}
     - target: {fileID: 6109100265650869312, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -718,6 +743,18 @@ PrefabInstance:
       propertyPath: GrabScript
       value: 
       objectReference: {fileID: 1035839175}
+    - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: KBForce
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 2096994541}
+    - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: KBTotalTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 979659908685377152, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1184,6 +1221,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2096994541 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2427240999126990486, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+  m_PrefabInstance: {fileID: 1042447399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2096994544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+  m_PrefabInstance: {fileID: 1042447399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4143abc41affb644915474ecd7b0533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1798842690278589470
 PrefabInstance:
   m_ObjectHideFlags: 0

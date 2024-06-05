@@ -7,8 +7,12 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     public float speed = 5f; // Adjust the speed as needed
     private Animator animator;
+    public Rigidbody2D playerRb;
     private bool isFacingRight = true; // Start facing right by default
-
+    public float KBForce;
+    public float KBCounter;
+    public float KBTotalTime;
+    public bool KnockFromRight;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,7 +39,22 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = new Vector3(horizontalInput, 0f, 0f) * speed * Time.deltaTime;
 
         // Move the player
-        transform.Translate(movement);
+        if (KBCounter <= 0)
+        {
+            transform.Translate(movement);
+        }
+        else
+        {
+            if (KnockFromRight == true)
+            {
+                playerRb.velocity = new Vector2(-KBForce, KBForce);
+            }
+            if (KnockFromRight == false)
+            {
+                playerRb.velocity = new Vector2(KBForce, KBForce);
+            }
+            KBCounter -= Time.deltaTime;
+        }
     }
 
     void FlipSprite()

@@ -5,23 +5,37 @@ public class FollowPlayer : MonoBehaviour
     public Animator animator;
     public float speed = 5.0f;
     public float followDistance = 0.5f;
+    public Rigidbody2D enemyRb;
     private Transform playerTransform;
+    public PlayerMovement playerMovement;
     public PlayerBody PlayerBodyScript;
     public float contactTimeThreshold = 3.0f;
     [SerializeField]
     public float contactTimer = 0.0f;
+    public float EKBForce;
+    public float EKBCounter;
+    public float EKBTotalTime;
+    public bool EKnockFromRight;
 
     void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        if (playerObject != null)
+        if (playerObject != null && EKBCounter <=0)
         {
             playerTransform = playerObject.transform;
         }
         else
         {
-            Debug.LogError("Player object not found. Make sure the player GameObject has the 'Player' tag.");
+            if (EKnockFromRight == true)
+            {
+                enemyRb.velocity = new Vector2(-EKBForce, EKBForce);
+            }
+            if (EKnockFromRight == false)
+            {
+                enemyRb.velocity = new Vector2(EKBForce, EKBForce);
+            }
+            EKBCounter -= Time.deltaTime;
         }
 
         if (animator == null)
@@ -50,6 +64,8 @@ public class FollowPlayer : MonoBehaviour
 
                 if (contactTimer >= contactTimeThreshold)
                 {
+                    playerMovement.KBCounter = playerMovement.KBTotalTime;
+                    
                     PlayerBodyScript.health -= 1;
                     contactTimer = 0.0f;
                     animator.SetBool("IsAttacking", false);
@@ -94,6 +110,16 @@ public class FollowPlayer : MonoBehaviour
             {
                 PlayerBodyScript.isInContact = true;
                 Debug.Log("Contact with player started.");
+                if (other.transform.position.x <= transform.position.x)
+                {
+                    playerMovement.KnockFromRight = true;
+                    EKnockFromRight = false;
+                }
+                if (other.transform.position.x <= transform.position.x)
+                {
+                    playerMovement.KnockFromRight = false;
+                    EKnockFromRight = true;
+                }
             }
             else
             {

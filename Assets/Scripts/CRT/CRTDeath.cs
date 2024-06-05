@@ -7,11 +7,13 @@ public class DestroyOnParryZoneContact : MonoBehaviour
     public float misfortune;
     public FollowPlayer CTRScript;
     public Image Misfortune;
+    public GrabObject GrabScript;
+    public GameObject FollowPlayer;
 
     private void UpdateUI()
     {
         //Troquem pra switch case
-        if (misfortune == 0) 
+        if (misfortune == 0)
         {
             Misfortune.fillAmount = 0f;
         }
@@ -22,7 +24,6 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         else if (misfortune == 2)
         {
             Misfortune.fillAmount = 1f;
-            DestroyUI();
             Destroy(gameObject);
         }
     }
@@ -41,10 +42,23 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         // If the object collides with something tagged "ParryZone," destroy this GameObject
         if (other.CompareTag("ParryZone") && CTRScript.contactTimer >= 1.5f)
         {
-            Debug.Log("Contact with ParryZone detected.");
-            CTRScript.contactTimer = 0;
-            misfortune += 1;
-            UpdateUI();
+            if (GrabScript.hasObject == true)
+            {
+                CTRScript.contactTimer = 0;
+                misfortune += 2;
+                Debug.Log("levaste 2 dano");
+                UpdateUI();
+            }
+
+            else if (GrabScript.hasObject == false)
+            {
+                Debug.Log("Contact with ParryZone detected.");
+                CTRScript.contactTimer = 0;
+                misfortune += 1;
+                Debug.Log("levaste 1 dano");
+                UpdateUI();
+            }
+
         }
         else if (other.CompareTag("Throw"))
         {
@@ -57,18 +71,11 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             Debug.Log("No ParryZone tag detected or contactTimer is too low.");
         }
 
+        
+
+        
+
+
+
     }
-
-    void DestroyUI()
-    {
-        GameObject Misfortune = GameObject.FindGameObjectWithTag("Misfortune");
-
-        if (Misfortune != null)
-        {
-            Object.Destroy(Misfortune);
-        }
-    }
-
-
-
 }

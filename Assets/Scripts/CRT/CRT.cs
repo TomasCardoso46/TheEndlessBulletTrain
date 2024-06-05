@@ -53,7 +53,6 @@ public class FollowPlayer : MonoBehaviour
                     PlayerBodyScript.health -= 1;
                     contactTimer = 0.0f;
                     animator.SetBool("IsAttacking", false);
-                    return;
                 }
             }
             else

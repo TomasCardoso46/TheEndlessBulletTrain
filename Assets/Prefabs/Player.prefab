@@ -287,6 +287,7 @@ MonoBehaviour:
   objectToSpawn: {fileID: 413981233525391888, guid: a899c02b82565db408d7a15e88bb2e2c, type: 3}
   leftOffset: 1
   playerTransform: {fileID: 5309022945545566934}
+  GrabScript: {fileID: 0}
 --- !u!114 &39103587431929697
 MonoBehaviour:
   m_ObjectHideFlags: 0

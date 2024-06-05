@@ -1,5 +1,6 @@
-using UnityEngine;
+using System;
 using System.Collections;
+using UnityEngine;
 
 public class Parry : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Parry : MonoBehaviour
     private Animator animator;
     private bool canParry = true; // Bool to track if parry is available
     public GrabObject GrabScript;
+    public DestroyOnParryZoneContact CRTD;
+    public FollowPlayer CRTScript;
+
 
     void Start()
     {
@@ -18,12 +22,24 @@ public class Parry : MonoBehaviour
     void Update()
     {
         // Check if the "F" key is pressed, the Player's Transform is set, and parry is available
-        if (Input.GetKeyDown(KeyCode.F) && canParry && GrabScript.hasObject == true)
+        if (Input.GetKeyDown(KeyCode.F) && canParry)
         {
             StartCoroutine(ParryAction());
-            GrabScript.hasObject = false;
+            if (GrabScript.hasObject == true)
+            {
+                DestroyObject(CompareTag("CRT"));
+                CRTScript.contactTimer = 0;
+                CRTD.misfortune += 2;
+                Debug.Log("levaste 2 dano");
+                GrabScript.hasObject = false;            
+            }
         }
          
+    }
+
+    private void DestroyObject(bool v)
+    {
+        throw new NotImplementedException();
     }
 
     private IEnumerator ParryAction()

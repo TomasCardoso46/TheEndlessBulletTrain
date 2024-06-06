@@ -8,8 +8,9 @@ public class PlayerBody : MonoBehaviour
     public int health = 3; // Player health
     public Image healthBar;
     [SerializeField]
-    public bool isInContact = false;
     
+    private FollowPlayer CRTScript;
+
 
 
     // Start is called before the first frame update
@@ -46,7 +47,7 @@ public class PlayerBody : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             // Increase strikes in the GameManager
-            health--;
+            loseHealth();
             Update();
 
             // If strikes reach 3, destroy the object
@@ -56,5 +57,13 @@ public class PlayerBody : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
             Object.Destroy(player);     
+    }
+
+    
+    public void loseHealth()
+    {
+        health -= 1;
+        return;
+
     }
 }

@@ -7,7 +7,7 @@ public class FollowPlayer : MonoBehaviour
     public Rigidbody2D enemyRb;
     private Transform playerTransform;
     public PlayerMovement playerMovement;
-    public PlayerBody PlayerBodyScript;
+    private PlayerBody PlayerBodyScript = null;
     public float contactTimeThreshold = 3.0f;
     [SerializeField]
     public float contactTimer = 0.0f;
@@ -15,6 +15,7 @@ public class FollowPlayer : MonoBehaviour
     public float EKBCounter;
     public float EKBTotalTime;
     public bool EKnockFromRight;
+    public bool isInContact = false;
 
     void Start()
     {
@@ -36,23 +37,21 @@ public class FollowPlayer : MonoBehaviour
             }
             EKBCounter -= Time.deltaTime;
         }
-
-        if (animator == null)
-        {
-            Debug.LogError("Animator not assigned. Please assign an Animator component.");
-        }
-
-        if (PlayerBodyScript == null)
-        {
-            Debug.LogError("PlayerBodyScript not assigned. Please assign a PlayerBody script in the Inspector.");
-        }
     }
 
     void Update()
     {
-        if (PlayerBodyScript != null)
+        if (PlayerBodyScript == null)
         {
-            if (PlayerBodyScript.isInContact)
+            PlayerBodyScript = FindObjectOfType<PlayerBody>();
+            if (PlayerBodyScript == null)
+            {
+                return;
+            }
+        }
+        if (PlayerBodyScript != null)
+        { 
+            if (isInContact)
             {
                 contactTimer += Time.deltaTime;
 
@@ -64,14 +63,17 @@ public class FollowPlayer : MonoBehaviour
                 if (contactTimer >= contactTimeThreshold)
                 {
                     playerMovement.KBCounter = playerMovement.KBTotalTime;
-                    PlayerBodyScript.health -= 1;
-                    contactTimer = 0.0f;
+                    resetTimer();
+                    PlayerBodyScript.loseHealth();
                     animator.SetBool("IsAttacking", false);
+                    return;   
                 }
+                
+
             }
             else
             {
-                contactTimer = 0.0f;
+                resetTimer();
             }
         }
 
@@ -106,7 +108,7 @@ public class FollowPlayer : MonoBehaviour
         {
             if (PlayerBodyScript != null)
             {
-                PlayerBodyScript.isInContact = true;
+                inContact();
                 Debug.Log("Contact with player started.");
                 if (other.transform.position.x <= transform.position.x)
                 {
@@ -127,8 +129,23 @@ public class FollowPlayer : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        PlayerBodyScript.isInContact = false;
-        contactTimer = 0.0f;
+        notInContact();
+        resetTimer();
         return;
+    }
+
+    public void resetTimer()
+    {
+        contactTimer = 0.0f;
+    }
+
+    public void inContact()
+    {
+        isInContact = true;
+    }
+
+    public void notInContact()
+    {
+        isInContact = false;
     }
 }

@@ -52,10 +52,10 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             {
                 ApplyKnockback(other);
                 misfortune += 2;
-                grabScript.hasObject = false;
+                grabScript.grabIsFalse();
                 Debug.Log("levaste 2 dano");
                 UpdateUI();
-                CTRScript.contactTimer = 0;
+                CTRScript.resetTimer();
             }
             else if (grabScript.hasObject == false)
             {
@@ -63,7 +63,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
                 misfortune += 1;
                 Debug.Log("levaste 1 dano");
                 UpdateUI();
-                CTRScript.contactTimer = 0;
+                CTRScript.resetTimer();
             }
 
             UpdateUI();
@@ -83,7 +83,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
     private void ApplyKnockback(Collider2D other)
     {
         Debug.Log("Contact with ParryZone detected.");
-        CTRScript.contactTimer = 0;
+        CTRScript.resetTimer();
         CTRScript.EKBCounter = CTRScript.EKBTotalTime;
 
         if (other.transform.position.x < transform.position.x)

@@ -104,4 +104,9 @@ public class GrabObject : MonoBehaviour
             Debug.LogError("ThrowPrefab is not assigned.");
         }
     }
+
+    public void grabIsFalse ()
+    {
+        hasObject = false;
+    }
 }

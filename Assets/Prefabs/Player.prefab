@@ -287,9 +287,9 @@ MonoBehaviour:
   objectToSpawn: {fileID: 413981233525391888, guid: a899c02b82565db408d7a15e88bb2e2c, type: 3}
   leftOffset: 1
   playerTransform: {fileID: 5309022945545566934}
-  GrabScript: {fileID: 0}
-  CRTD: {fileID: 0}
-  CRTScript: {fileID: 0}
+  GrabScript: {fileID: -5344070472957621020}
+  CRTD: {fileID: 3619287454653239559, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+  CRTScript: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
 --- !u!114 &39103587431929697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +303,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  playerRb: {fileID: 2427240999126990486}
+  KBForce: 4
+  KBCounter: 0
+  KBTotalTime: 0.1
+  KnockFromRight: 0
 --- !u!114 &6392565637204106373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,10 +336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94dab1e27edd761479e55a192292bbd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlaceDownPrefab: {fileID: 0}
-  ThrowPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  alternateSpawnPoint: {fileID: 0}
+  PlaceDownPrefab: {fileID: 7697197777443490995, guid: b1472382515a6c54994e9f0f08debed4, type: 3}
+  ThrowPrefab: {fileID: 7697197777443490995, guid: 3a57afd45da8b5741842d9cb5ada14b4, type: 3}
+  spawnPoint: {fileID: 2632625164818914377}
+  alternateSpawnPoint: {fileID: 5206820563146333994}
   throwForce: 10
   canGrab: 0
   hasObject: 0

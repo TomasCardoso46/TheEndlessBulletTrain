@@ -20,14 +20,21 @@ public class FollowPlayer : MonoBehaviour
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        
-        if (playerObject != null && EKBCounter <= 0)
-            {
+        if (playerObject != null && EKBCounter <=0)
+        {
             playerTransform = playerObject.transform;
         }
         else
         {
-            Debug.LogError("Player object not found. Make sure the player GameObject has the 'Player' tag.");
+            if (EKnockFromRight == true)
+            {
+                enemyRb.velocity = new Vector2(-EKBForce, EKBForce);
+            }
+            if (EKnockFromRight == false)
+            {
+                enemyRb.velocity = new Vector2(EKBForce, EKBForce);
+            }
+            EKBCounter -= Time.deltaTime;
         }
 
         if (animator == null)
@@ -101,6 +108,16 @@ public class FollowPlayer : MonoBehaviour
             {
                 PlayerBodyScript.isInContact = true;
                 Debug.Log("Contact with player started.");
+                if (other.transform.position.x <= transform.position.x)
+                {
+                    playerMovement.KnockFromRight = true;
+                    EKnockFromRight = false;
+                }
+                if (other.transform.position.x <= transform.position.x)
+                {
+                    playerMovement.KnockFromRight = false;
+                    EKnockFromRight = true;
+                }
             }
             else
             {

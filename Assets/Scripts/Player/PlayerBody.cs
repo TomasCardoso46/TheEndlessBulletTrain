@@ -9,6 +9,7 @@ public class PlayerBody : MonoBehaviour
     public Image healthBar;
     [SerializeField]
     public bool isInContact = false;
+    
 
 
     // Start is called before the first frame update

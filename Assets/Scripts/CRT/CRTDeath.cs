@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,9 +7,11 @@ public class DestroyOnParryZoneContact : MonoBehaviour
     [SerializeField]
     public float misfortune;
     public FollowPlayer CTRScript;
+    
     public Image Misfortune;
     public GrabObject GrabScript;
     public GameObject FollowPlayer;
+    
 
     private void UpdateUI()
     {
@@ -32,40 +35,33 @@ public class DestroyOnParryZoneContact : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log($"Triggered with: {other.name}"); // Log which object is triggering the event
-
-        // Log the tag of the other object
         Debug.Log($"Other object's tag: {other.tag}");
 
-        // Check if PlayerBodyScript is assigned
-
-
-        // If the object collides with something tagged "ParryZone," destroy this GameObject
         if (other.CompareTag("ParryZone") && CTRScript.contactTimer >= 1.5f)
         {
             if (GrabScript.hasObject == true)
             {
-                
+                ApplyKnockback(other);
                 misfortune += 2;
                 GrabScript.hasObject = false;
                 Debug.Log("levaste 2 dano");
                 UpdateUI();
                 CTRScript.contactTimer = 0;
             }
-
             else if (GrabScript.hasObject == false)
             {
-                Debug.Log("Contact with ParryZone detected.");
-                
+                ApplyKnockback(other);
                 misfortune += 1;
                 Debug.Log("levaste 1 dano");
                 UpdateUI();
                 CTRScript.contactTimer = 0;
             }
 
+            UpdateUI();
         }
         else if (other.CompareTag("Throw"))
         {
-            Debug.Log("Contact with ParryZone detected.");
+            ApplyKnockback(other);
             misfortune += 1;
             UpdateUI();
         }
@@ -73,12 +69,29 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         {
             Debug.Log("No ParryZone tag detected or contactTimer is too low.");
         }
+    }
 
-        
+    private void ApplyKnockback(Collider2D other)
+    {
+        Debug.Log("Contact with ParryZone detected.");
+        CTRScript.contactTimer = 0;
+        CTRScript.EKBCounter = CTRScript.EKBTotalTime;
 
-        
-
-
-
+        if (other.transform.position.x < transform.position.x)
+        {
+            CTRScript.EKnockFromRight = true;
+        }
+        else
+        {
+            CTRScript.EKnockFromRight = false;
+        }
     }
 }
+
+        
+
+        
+
+
+
+

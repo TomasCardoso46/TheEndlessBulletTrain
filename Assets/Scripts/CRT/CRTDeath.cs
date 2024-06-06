@@ -9,8 +9,8 @@ public class DestroyOnParryZoneContact : MonoBehaviour
     public FollowPlayer CTRScript;
     
     public Image Misfortune;
-    public GrabObject GrabScript;
-    public GameObject FollowPlayer;
+
+    private GrabObject grabScript = null;
     
 
     private void UpdateUI()
@@ -39,16 +39,25 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 
         if (other.CompareTag("ParryZone") && CTRScript.contactTimer >= 1.5f)
         {
-            if (GrabScript.hasObject == true)
+            if (grabScript == null)
+            {
+                grabScript = FindObjectOfType<GrabObject>();
+                if (grabScript == null)
+                {
+                    return;
+                }
+            }
+
+            if (grabScript.hasObject == true)
             {
                 ApplyKnockback(other);
                 misfortune += 2;
-                GrabScript.hasObject = false;
+                grabScript.hasObject = false;
                 Debug.Log("levaste 2 dano");
                 UpdateUI();
                 CTRScript.contactTimer = 0;
             }
-            else if (GrabScript.hasObject == false)
+            else if (grabScript.hasObject == false)
             {
                 ApplyKnockback(other);
                 misfortune += 1;

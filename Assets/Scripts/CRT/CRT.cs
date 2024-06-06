@@ -1,22 +1,28 @@
 using UnityEngine;
-
 public class FollowPlayer : MonoBehaviour
 {
     public Animator animator;
     public float speed = 5.0f;
     public float followDistance = 0.5f;
+    public Rigidbody2D enemyRb;
     private Transform playerTransform;
+    public PlayerMovement playerMovement;
     public PlayerBody PlayerBodyScript;
     public float contactTimeThreshold = 3.0f;
     [SerializeField]
     public float contactTimer = 0.0f;
+    public float EKBForce;
+    public float EKBCounter;
+    public float EKBTotalTime;
+    public bool EKnockFromRight;
 
     void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        if (playerObject != null)
-        {
+        
+        if (playerObject != null && EKBCounter <= 0)
+            {
             playerTransform = playerObject.transform;
         }
         else
@@ -43,13 +49,14 @@ public class FollowPlayer : MonoBehaviour
             {
                 contactTimer += Time.deltaTime;
 
-                if (contactTimer >= contactTimeThreshold)
+                if (contactTimer >= contactTimeThreshold - 3f)
                 {
                     animator.SetBool("IsAttacking", true);
                 }
 
                 if (contactTimer >= contactTimeThreshold)
                 {
+                    playerMovement.KBCounter = playerMovement.KBTotalTime;
                     PlayerBodyScript.health -= 1;
                     contactTimer = 0.0f;
                     animator.SetBool("IsAttacking", false);

@@ -288,6 +288,8 @@ MonoBehaviour:
   leftOffset: 1
   playerTransform: {fileID: 5309022945545566934}
   GrabScript: {fileID: 0}
+  CRTD: {fileID: 0}
+  CRTScript: {fileID: 0}
 --- !u!114 &39103587431929697
 MonoBehaviour:
   m_ObjectHideFlags: 0

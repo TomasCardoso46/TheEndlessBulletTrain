@@ -25,14 +25,6 @@ public class Parry : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && canParry)
         {
             StartCoroutine(ParryAction());
-            if (GrabScript.hasObject == true)
-            {
-                DestroyObject(CompareTag("CRT"));
-                CRTScript.contactTimer = 0;
-                CRTD.misfortune += 2;
-                Debug.Log("levaste 2 dano");
-                GrabScript.hasObject = false;            
-            }
         }
          
     }

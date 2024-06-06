@@ -299,9 +299,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1529490639}
+    - target: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: PlayerBodyScript
       value: 
       objectReference: {fileID: 1035839174}
+    - target: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: contactTimeThreshold
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3619287454653239559, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: CTRScript
       value: 
@@ -718,9 +726,25 @@ PrefabInstance:
       propertyPath: GrabScript
       value: 
       objectReference: {fileID: 1035839175}
+    - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: KBForce
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 1529490636}
+    - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: KBCounter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: KBTotalTime
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 979659908685377152, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 979659908685377152, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: SpawnPoint
@@ -868,6 +892,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1472382515a6c54994e9f0f08debed4, type: 3}
+--- !u!50 &1529490636 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2427240999126990486, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+  m_PrefabInstance: {fileID: 1042447399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1529490639 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+  m_PrefabInstance: {fileID: 1042447399}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4143abc41affb644915474ecd7b0533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1595840937
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,19 +44,22 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         {
             if (GrabScript.hasObject == true)
             {
-                CTRScript.contactTimer = 0;
+                
                 misfortune += 2;
+                GrabScript.hasObject = false;
                 Debug.Log("levaste 2 dano");
                 UpdateUI();
+                CTRScript.contactTimer = 0;
             }
 
             else if (GrabScript.hasObject == false)
             {
                 Debug.Log("Contact with ParryZone detected.");
-                CTRScript.contactTimer = 0;
+                
                 misfortune += 1;
                 Debug.Log("levaste 1 dano");
                 UpdateUI();
+                CTRScript.contactTimer = 0;
             }
 
         }

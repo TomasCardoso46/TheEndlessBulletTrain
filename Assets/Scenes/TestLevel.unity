@@ -196,6 +196,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Close Range Thug
       objectReference: {fileID: 0}
+    - target: {fileID: 6068682085844730889, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068682085844730889, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.12
+      objectReference: {fileID: 0}
     - target: {fileID: 6109100265650869312, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.94

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class PlayerMovement : MonoBehaviour
     public float KBTotalTime;
     public bool KnockFromRight;
 
+    private bool canRoll = true;
+    private bool isRolling;
+    private float rollPower = 5f;
+    private float rollTime = 0.5f;
+    private float rollCooldown = 1f;
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isRolling)
+        {
+            return;
+        }
         // Get horizontal input
         horizontalInput = Input.GetAxis("Horizontal");
         FlipSprite();
@@ -34,6 +46,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetFloat("isWalking", 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canRoll)
+        {
+            StartCoroutine(Roll());
         }
 
         // Calculate movement vector
@@ -67,5 +84,23 @@ public class PlayerMovement : MonoBehaviour
             scale.x *= -1f;
             transform.localScale = scale;
         }
+    }
+
+    private IEnumerator Roll()
+    {
+        GetComponent<CapsuleCollider2D>().isTrigger = true;
+        canRoll = false;
+        isRolling = true;
+        float originalGravity = playerRb.gravityScale;
+        playerRb.gravityScale = 0f;
+        playerRb.velocity = new Vector2(transform.localScale.x * rollPower, 0f);
+        yield return new WaitForSeconds(rollTime);
+        GetComponent<CapsuleCollider2D>().isTrigger = false;
+        playerRb.gravityScale = originalGravity;
+        isRolling = false;
+        yield return new WaitForSeconds(rollCooldown);    
+        canRoll = true;
+
+
     }
 }

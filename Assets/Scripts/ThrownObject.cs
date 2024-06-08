@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ThrownObject : MonoBehaviour
 {
-    public DestroyOnParryZoneContact CRTD;
+    /// <summary>
+    /// public DestroyOnParryZoneContact CRTD;
+    /// </summary>
     // Start is called before the first frame update
     void Start()
     {

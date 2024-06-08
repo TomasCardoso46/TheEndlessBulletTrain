@@ -11,7 +11,7 @@ public class Parry : MonoBehaviour
     private bool canParry = true; // Bool to track if parry is available
     private bool isParrying = false; // Bool to track if parry is currently active
     public GrabObject GrabScript;
-    public DestroyOnParryZoneContact CRTD;
+    ///public DestroyOnParryZoneContact CRTD;
     public FollowPlayer CRTScript;
 
     void Start()

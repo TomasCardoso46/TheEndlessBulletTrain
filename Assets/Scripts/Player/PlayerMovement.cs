@@ -1,42 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
-
 public class PlayerMovement : MonoBehaviour
 {
-    float horizontalInput;
     public float speed = 5f; // Adjust the speed as needed
     private Animator animator;
     public Rigidbody2D playerRb;
     private bool isFacingRight = true; // Start facing right by default
-    public float KBForce;
-    public float KBCounter;
-    public float KBTotalTime;
-    public bool KnockFromRight;
-
+    
     private bool canRoll = true;
     private bool isRolling;
     private float rollPower = 5f;
     private float rollTime = 0.5f;
     private float rollCooldown = 1f;
 
-
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isRolling)
         {
             return;
         }
+
         // Get horizontal input
-        horizontalInput = Input.GetAxis("Horizontal");
-        FlipSprite();
+        float horizontalInput = Input.GetAxis("Horizontal");
+        FlipSprite(horizontalInput);
 
         // Check if the player is walking
         if (Mathf.Abs(horizontalInput) > 0.1f)
@@ -53,29 +45,18 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Roll());
         }
 
-        // Calculate movement vector
-        Vector3 movement = new Vector3(horizontalInput, 0f, 0f) * speed * Time.deltaTime;
+        // Check if the player is not getting knockbacked
+        if (!isRolling && playerRb.velocity.magnitude < 0.1f)
+        {
+            // Calculate movement vector
+            Vector3 movement = new Vector3(horizontalInput, 0f, 0f) * speed * Time.deltaTime;
 
-        // Move the player
-        if (KBCounter <= 0)
-        {
             transform.Translate(movement);
-        }
-        else
-        {
-            if (KnockFromRight == true)
-            {
-                playerRb.velocity = new Vector2(-KBForce, KBForce);
-            }
-            if (KnockFromRight == false)
-            {
-                playerRb.velocity = new Vector2(KBForce, KBForce);
-            }
-            KBCounter -= Time.deltaTime;
         }
     }
 
-    void FlipSprite()
+
+    void FlipSprite(float horizontalInput)
     {
         if ((isFacingRight && horizontalInput < 0f) || (!isFacingRight && horizontalInput > 0f))
         {
@@ -102,8 +83,8 @@ public class PlayerMovement : MonoBehaviour
         canRoll = true;
     }
 
-    public void kb()
+    public void ApplyKnockback(Vector2 knockbackForce)
     {
-        KBCounter = KBTotalTime;
+        playerRb.AddForce(knockbackForce, ForceMode2D.Impulse);
     }
 }

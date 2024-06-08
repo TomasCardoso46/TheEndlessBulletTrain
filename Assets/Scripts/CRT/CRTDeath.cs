@@ -11,11 +11,11 @@ public class DestroyOnParryZoneContact : MonoBehaviour
     public Image Misfortune;
 
     private GrabObject grabScript = null;
-    
 
     private void UpdateUI()
     {
-        //Troquem pra switch case
+        // Update the UI based on the misfortune value
+        // Troquem pra switch case
         if (misfortune == 0)
         {
             Misfortune.fillAmount = 0f;
@@ -29,8 +29,32 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             Misfortune.fillAmount = 1f;
             Destroy(gameObject);
         }
+
+        
     }
 
+    // Call this method to apply knockback to the enemy
+    private void ApplyEnemyKnockback()
+    {
+        // Find the enemy GameObject with the FollowPlayer script attached
+        GameObject enemyObject = GameObject.FindGameObjectWithTag("CRT");
+
+        if (enemyObject != null)
+        {
+            // Get the FollowPlayer component from the enemy GameObject
+            FollowPlayer followPlayer = enemyObject.GetComponent<FollowPlayer>();
+
+            if (followPlayer != null)
+            {
+                // Calculate knockback force (example values)
+                Vector2 knockbackDirection = (enemyObject.transform.position - transform.position).normalized;
+                Vector2 knockbackForce = knockbackDirection * 5f; // Adjust as needed
+
+                // Call the ApplyKnockback method on the FollowPlayer component
+                followPlayer.ApplyKnockback(knockbackForce);
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -50,7 +74,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 
             if (grabScript.hasObject == true)
             {
-                ApplyKnockback(other);
+                ApplyEnemyKnockback();
                 misfortune += 2;
                 grabScript.grabIsFalse();
                 Debug.Log("levaste 2 dano");
@@ -59,7 +83,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             }
             else if (grabScript.hasObject == false)
             {
-                ApplyKnockback(other);
+                ApplyEnemyKnockback();
                 misfortune += 1;
                 Debug.Log("levaste 1 dano");
                 UpdateUI();
@@ -70,7 +94,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         }
         else if (other.CompareTag("Throw"))
         {
-            ApplyKnockback(other);
+            ApplyEnemyKnockback();
             misfortune += 1;
             UpdateUI();
         }
@@ -79,28 +103,4 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             Debug.Log("No ParryZone tag detected or contactTimer is too low.");
         }
     }
-
-    private void ApplyKnockback(Collider2D other)
-    {
-        Debug.Log("Contact with ParryZone detected.");
-        CTRScript.resetTimer();
-        CTRScript.EKBCounter = CTRScript.EKBTotalTime;
-
-        if (other.transform.position.x < transform.position.x)
-        {
-            CTRScript.EKnockFromRight = true;
-        }
-        else
-        {
-            CTRScript.EKnockFromRight = false;
-        }
-    }
 }
-
-        
-
-        
-
-
-
-

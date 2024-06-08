@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public class FollowPlayer : MonoBehaviour
 {
     public Animator animator;
@@ -11,31 +12,18 @@ public class FollowPlayer : MonoBehaviour
     public float contactTimeThreshold = 3.0f;
     [SerializeField]
     public float contactTimer = 0.0f;
-    public float EKBForce;
-    public float EKBCounter;
-    public float EKBTotalTime;
-    public bool EKnockFromRight;
     public bool isInContact = false;
+
+    public float knockbackForce = 5.0f; // Adjust this as needed
 
     void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        if (playerObject != null && EKBCounter <=0)
+        if (playerObject != null)
         {
             playerTransform = playerObject.transform;
-        }
-        else
-        {
-            if (EKnockFromRight == true)
-            {
-                enemyRb.velocity = new Vector2(-EKBForce, EKBForce);
-            }
-            if (EKnockFromRight == false)
-            {
-                enemyRb.velocity = new Vector2(EKBForce, EKBForce);
-            }
-            EKBCounter -= Time.deltaTime;
+            playerMovement = playerObject.GetComponent<PlayerMovement>();
         }
     }
 
@@ -63,13 +51,12 @@ public class FollowPlayer : MonoBehaviour
                 if (contactTimer >= contactTimeThreshold)
                 {         
                     resetTimer();
-                    playerMovement.kb();
+                    
                     PlayerBodyScript.loseHealth();
+                    ApplyKnockbackToPlayer();
                     animator.SetBool("IsAttacking", false);
                     return;   
                 }
-                
-
             }
             else
             {
@@ -110,16 +97,6 @@ public class FollowPlayer : MonoBehaviour
             {
                 inContact();
                 Debug.Log("Contact with player started.");
-                if (other.transform.position.x <= transform.position.x)
-                {
-                    playerMovement.KnockFromRight = true;
-                    EKnockFromRight = false;
-                }
-                if (other.transform.position.x <= transform.position.x)
-                {
-                    playerMovement.KnockFromRight = false;
-                    EKnockFromRight = true;
-                }
             }
             else
             {
@@ -127,11 +104,14 @@ public class FollowPlayer : MonoBehaviour
             }
         }
     }
+
     void OnTriggerExit2D(Collider2D other)
     {
-        notInContact();
-        resetTimer();
-        return;
+        if (other.CompareTag("Player"))
+        {
+            notInContact();
+            resetTimer();
+        }
     }
 
     public void resetTimer()
@@ -147,5 +127,21 @@ public class FollowPlayer : MonoBehaviour
     public void notInContact()
     {
         isInContact = false;
+    }
+
+    private void ApplyKnockbackToPlayer()
+    {
+        if (playerTransform != null && playerMovement != null)
+        {
+            Vector2 knockbackDirection = (playerTransform.position - transform.position).normalized;
+            Vector2 knockbackForceVector = knockbackDirection * knockbackForce;
+            playerMovement.ApplyKnockback(knockbackForceVector);
+        }
+    }
+
+    // Method to apply knockback to the enemy
+    public void ApplyKnockback(Vector2 knockbackForce)
+    {
+        enemyRb.AddForce(knockbackForce, ForceMode2D.Impulse);
     }
 }

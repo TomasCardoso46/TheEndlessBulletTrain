@@ -9,6 +9,12 @@ public class BossMoveSet : MonoBehaviour
     private PlayerBody PlayerBodyScript = null;
     private Parry playerParryScript;
 
+    public Transform SpawnPoint;
+    public int speed;
+    public GameObject knife;
+    public int knifeDistance = 15;
+    private float fireRateBom = 1f;
+    public float fireRateThreshold = 1.5f;
     void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -34,10 +40,20 @@ public class BossMoveSet : MonoBehaviour
         if (playerTransform == null) return;
 
         float distance = Vector3.Distance(transform.position, playerTransform.position);
-        if (distance > chargeDistance)
+        if (distance > chargeDistance && distance < knifeDistance)
         {
             isCharging = true;
             Debug.Log("Initiating charged attack!");
+        }
+        else if (distance > knifeDistance)
+        {
+                TimeIncrease();
+                if (fireRateBom >= fireRateThreshold)
+                {
+                    ShootPlayer();
+                    fireRateBom = 0.0f;
+                    return;
+                }
         }
     }
 
@@ -55,6 +71,16 @@ public class BossMoveSet : MonoBehaviour
         }
 
         Debug.Log("Performing charged attack!");
+    }
+    void ShootPlayer()
+    {
+        Vector3 shootDirection = (playerTransform.position - SpawnPoint.position).normalized;
+        GameObject bulletInstance = Instantiate(knife, SpawnPoint.position, Quaternion.identity);
+        bulletInstance.GetComponent<Rigidbody2D>().velocity = shootDirection * speed;
+    }
+    void TimeIncrease()
+    {
+        fireRateBom += Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D other)

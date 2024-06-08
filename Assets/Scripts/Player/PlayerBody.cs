@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerBody : MonoBehaviour
 {
     public int health = 3; // Player health
+    public int strikes = 3;
     public Image healthBar;
     [SerializeField]
     

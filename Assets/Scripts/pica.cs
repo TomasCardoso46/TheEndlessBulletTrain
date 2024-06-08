@@ -28,7 +28,14 @@ public class pica : MonoBehaviour
             // Start blinking the prefab
             StartCoroutine(BlinkPrefab());
 
-            // If strikes reach 3, destroy the object
+            // Get the Strikes component and update the health sprite
+            Strikes strikesComponent = GameObject.FindObjectOfType<Strikes>();
+            if (strikesComponent != null)
+            {
+                strikesComponent.UpdateStrikeSprite(GameManager.instance.strikes);
+            }
+
+            // If strikes reach 3, destroy the player object
             if (GameManager.instance.strikes >= 3)
             {
                 DestroyPlayer();
@@ -51,6 +58,7 @@ public class pica : MonoBehaviour
         // Ensure the sprite is visible after blinking
         prefabSpriteRenderer.enabled = true;
     }
+
     void DestroyPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");

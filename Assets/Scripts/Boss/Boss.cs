@@ -18,6 +18,7 @@ public class Boss : MonoBehaviour
     public float EKBTotalTime;
     public bool EKnockFromRight;
     public bool isInContact = false;
+    
 
     private BossMoveSet bossMoveSet;
 
@@ -153,4 +154,5 @@ public class Boss : MonoBehaviour
     {
         isInContact = false;
     }
+    
 }

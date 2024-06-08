@@ -2,48 +2,114 @@ using UnityEngine;
 
 public class GrabObject : MonoBehaviour
 {
-    [SerializeField] private GameObject objectPrefab; // Prefab for the object to grab
+    [SerializeField] private GameObject extintorPrefab; // Prefab for the extintor
+    [SerializeField] private GameObject malaPrefab; // Prefab for the mala
+    [SerializeField] private GameObject spawnPoint; // Spawn point for placing down objects
+    [SerializeField] private GameObject extintorThrowable; // Prefab for throwing the extintor
+    [SerializeField] private GameObject malaThrowable; // Prefab for throwing the mala
     [SerializeField] private float throwForce = 10f; // Force to apply when throwing the object
+    [SerializeField] private bool canGrabExtintor = false;
+    [SerializeField] private bool canGrabMala = false;
+    [SerializeField] private bool hasExtintor = false; // Flag to indicate if player has the extintor
+    [SerializeField] private bool hasMala = false; // Flag to indicate if player has the mala
 
-    public bool HasObject { get; private set; } = false; // Property to check if object is currently grabbed
+    private GameObject currentObject; // The object currently in contact with the player
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Object"))
+        if (other.CompareTag("Extintor"))
         {
-            HasObject = true; // Set HasObject to true when an object is in the trigger zone
+            canGrabExtintor = true;
+            currentObject = other.gameObject; // Set the current object to the one in contact
+        }
+        else if (other.CompareTag("Mala"))
+        {
+            canGrabMala = true;
+            currentObject = other.gameObject; // Set the current object to the one in contact
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Object"))
+        if (other.CompareTag("Extintor"))
         {
-            HasObject = false; // Set HasObject to false when an object exits the trigger zone
+            canGrabExtintor = false;
+        }
+        else if (other.CompareTag("Mala"))
+        {
+            canGrabMala = false;
         }
     }
 
-    public void PlaceObject(Vector3 position, Quaternion rotation)
+    private void Update()
     {
-        if (objectPrefab != null)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            Instantiate(objectPrefab, position, rotation); // Instantiate object at given position
-            HasObject = false; // Reset HasObject to false after placing the object
+            if (canGrabExtintor && !hasExtintor) // Check if can grab and doesn't already have extintor
+            {
+                DestroyObject(currentObject); // Destroy the current object
+                hasExtintor = true; // Set flag to true
+            }
+            else if (hasExtintor)
+            {
+                RespawnObject(extintorPrefab); // Respawn the extinguisher if already has it
+                hasExtintor = false;
+            }
+
+            if (canGrabMala && !hasMala) // Check if can grab and doesn't already have mala
+            {
+                DestroyObject(currentObject); // Destroy the current object
+                hasMala = true; // Set flag to true
+            }
+            else if (hasMala)
+            {
+                RespawnObject(malaPrefab); // Respawn the mala if already has it
+                hasMala = false;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (hasExtintor)
+            {
+                ThrowObject(extintorThrowable);
+                hasExtintor = false;
+            }
+            else if (hasMala)
+            {
+                ThrowObject(malaThrowable);
+                hasMala = false;
+            }
         }
     }
 
-    public void ThrowObject(Vector3 position, Quaternion rotation)
+
+    private void DestroyObject(GameObject obj)
     {
-        if (objectPrefab != null)
+        if (obj != null)
         {
-            GameObject thrownObject = Instantiate(objectPrefab, position, rotation); // Instantiate object at given position
+            Destroy(obj);
+        }
+    }
+
+    private void ThrowObject(GameObject throwablePrefab)
+    {
+        if (throwablePrefab != null)
+        {
+            GameObject thrownObject = Instantiate(throwablePrefab, transform.position, transform.rotation);
             Rigidbody2D rb = thrownObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                Vector2 throwDirection = new Vector2(transform.localScale.x, 0); // Assuming x scale < 0 when facing left
-                rb.AddForce(throwDirection.normalized * throwForce, ForceMode2D.Impulse); // Apply throwing force
-                HasObject = false; // Reset HasObject to false after throwing the object
+                Vector2 throwDirection = new Vector2(transform.localScale.x, 0);
+                rb.AddForce(throwDirection.normalized * throwForce, ForceMode2D.Impulse);
             }
+        }
+    }
+
+    private void RespawnObject(GameObject prefab)
+    {
+        if (prefab != null && spawnPoint != null)
+        {
+            Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity);
         }
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 
 public class BossDeath : MonoBehaviour
@@ -54,8 +54,9 @@ public class BossDeath : MonoBehaviour
                 {
                     damage += 2;
                     Debug.Log($"levaste 2 dano");
-                    grabScript.PlaceObject(other.transform.position, other.transform.rotation); // Place the object if it is grabbed
+                    grabScript.ThrowObject(grabScript.alternateSpawnPoint.transform.position, grabScript.alternateSpawnPoint.transform.rotation); // Throw the object if it is grabbed
                 }
+
                 else
                 {
                     damage += 1;
@@ -96,3 +97,4 @@ public class BossDeath : MonoBehaviour
         }
     }
 }
+*/

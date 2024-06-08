@@ -1,40 +1,35 @@
-using Unity.VisualScripting;
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 
 public class DestroyOnParryZoneContact : MonoBehaviour
 {
-    [SerializeField]
-    public float misfortune;
+    [SerializeField] private float misfortune;
     public FollowPlayer CTRScript;
-    
     public Image Misfortune;
 
-    private GrabObject grabScript = null;
+    private GrabObject[] grabScripts; // Changed to an array to support multiple GrabObject scripts
+
+    private void Start()
+    {
+        grabScripts = FindObjectsOfType<GrabObject>(); // Find all GrabObject scripts in the scene
+    }
 
     private void UpdateUI()
     {
-        // Update the UI based on the misfortune value
-        // Troquem pra switch case
-        if (misfortune == 0)
+        switch (misfortune)
         {
-            Misfortune.fillAmount = 0f;
+            case 0:
+                Misfortune.fillAmount = 0f;
+                break;
+            case 1:
+                Misfortune.fillAmount = 0.50f;
+                break;
+            case 2:
+                Misfortune.fillAmount = 1f;
+                Destroy(gameObject);
+                break;
         }
-        else if (misfortune == 1)
-        {
-            Misfortune.fillAmount = 0.50f;
-        }
-        else if (misfortune == 2)
-        {
-            Misfortune.fillAmount = 1f;
-            Destroy(gameObject);
-        }
-
-        
     }
-
-    
-    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -44,52 +39,33 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 
         if (other.CompareTag("ParryZone") && CTRScript.contactTimer >= 1.5f)
         {
-            if (grabScript == null)
+            int damage = 0;
+            foreach (var grabScript in grabScripts)
             {
-                grabScript = FindObjectOfType<GrabObject>();
-                if (grabScript == null)
+                if (grabScript.HasObject)
                 {
-                    return;
+                    damage += 2;
+                    grabScript.grabIsFalse();
+                    Debug.Log("levaste 2 dano");
+                }
+                else
+                {
+                    damage += 1;
+                    Debug.Log("levaste 1 dano");
                 }
             }
 
-            if (grabScript.hasObject == true)
-            {
-
-                CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
-                misfortune += 2;
-                grabScript.grabIsFalse();
-                Debug.Log("levaste 2 dano");
-                UpdateUI();
-                CTRScript.resetTimer();
-            }
-            else if (grabScript.hasObject == false)
-            {
-                CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
-                misfortune += 1;
-                Debug.Log("levaste 1 dano");
-                UpdateUI();
-                CTRScript.resetTimer();
-            }
-
+            CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
+            misfortune += damage;
             UpdateUI();
+            CTRScript.resetTimer();
         }
-        else if (other.CompareTag("Mala"))
+        else if (other.CompareTag("Mala") || other.CompareTag("Extintor"))
         {
             CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
             misfortune += 1;
             UpdateUI();
-        }
-        else if (other.CompareTag("Extintor"))
-        {
-            CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
-            misfortune += 1;
-            UpdateUI();
-        }
-        else
-        {
-            Debug.Log("No ParryZone tag detected or contactTimer is too low.");
         }
     }
 }
-///
+*/

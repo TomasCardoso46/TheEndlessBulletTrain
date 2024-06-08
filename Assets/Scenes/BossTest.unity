@@ -324,7 +324,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1877931756}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2e3374087e60c04c87d8fb92d601128, type: 3}
   m_Name: 
@@ -797,7 +797,7 @@ PrefabInstance:
       objectReference: {fileID: 797948331}
     - target: {fileID: -2509535273821516073, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4638431256998197294, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: m_Name
@@ -853,7 +853,7 @@ PrefabInstance:
       objectReference: {fileID: 797948324}
     - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: chargeSpeed

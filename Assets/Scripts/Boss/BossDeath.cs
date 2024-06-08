@@ -1,4 +1,4 @@
-/*using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class BossDeath : MonoBehaviour
@@ -50,13 +50,18 @@ public class BossDeath : MonoBehaviour
             int damage = 0;
             foreach (var grabScript in grabScripts)
             {
-                if (grabScript.HasObject)
+                if (grabScript.hasExtintor)
                 {
                     damage += 2;
-                    Debug.Log($"levaste 2 dano");
-                    grabScript.ThrowObject(grabScript.alternateSpawnPoint.transform.position, grabScript.alternateSpawnPoint.transform.rotation); // Throw the object if it is grabbed
+                    grabScript.DoesntHaveExtintor();
+                    Debug.Log("levaste 2 dano");
                 }
-
+                else if (grabScript.hasMala)
+                {
+                    damage += 2;
+                    grabScript.DoesntHaveMala();
+                    Debug.Log("levaste 2 dano");
+                }
                 else
                 {
                     damage += 1;
@@ -69,7 +74,13 @@ public class BossDeath : MonoBehaviour
             UpdateUI();
             bossscript.resetTimer();
         }
-        else if (other.CompareTag("Throw"))
+        else if (other.CompareTag("ThrowableExtintor"))
+        {
+            ApplyKnockback(other);
+            misfortune += 1;
+            UpdateUI();
+        }
+        else if (other.CompareTag("ThrowableMala"))
         {
             ApplyKnockback(other);
             misfortune += 1;
@@ -97,4 +108,3 @@ public class BossDeath : MonoBehaviour
         }
     }
 }
-*/

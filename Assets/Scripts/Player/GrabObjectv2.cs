@@ -10,8 +10,8 @@ public class GrabObject : MonoBehaviour
     [SerializeField] private float throwForce = 10f; // Force to apply when throwing the object
     [SerializeField] private bool canGrabExtintor = false;
     [SerializeField] private bool canGrabMala = false;
-    [SerializeField] private bool hasExtintor = false; // Flag to indicate if player has the extintor
-    [SerializeField] private bool hasMala = false; // Flag to indicate if player has the mala
+    [SerializeField] public bool hasExtintor = false; // Flag to indicate if player has the extintor
+    [SerializeField] public bool hasMala = false; // Flag to indicate if player has the mala
 
     private GameObject currentObject; // The object currently in contact with the player
 
@@ -53,7 +53,7 @@ public class GrabObject : MonoBehaviour
             else if (hasExtintor)
             {
                 RespawnObject(extintorPrefab); // Respawn the extinguisher if already has it
-                hasExtintor = false;
+                DoesntHaveExtintor();
             }
 
             if (canGrabMala && !hasMala) // Check if can grab and doesn't already have mala
@@ -64,7 +64,7 @@ public class GrabObject : MonoBehaviour
             else if (hasMala)
             {
                 RespawnObject(malaPrefab); // Respawn the mala if already has it
-                hasMala = false;
+                DoesntHaveMala();
             }
         }
         else if (Input.GetKeyDown(KeyCode.T))
@@ -72,12 +72,12 @@ public class GrabObject : MonoBehaviour
             if (hasExtintor)
             {
                 ThrowObject(extintorThrowable);
-                hasExtintor = false;
+                DoesntHaveExtintor();
             }
             else if (hasMala)
             {
                 ThrowObject(malaThrowable);
-                hasMala = false;
+                DoesntHaveMala();
             }
         }
     }
@@ -111,5 +111,14 @@ public class GrabObject : MonoBehaviour
         {
             Instantiate(prefab, spawnPoint.transform.position, Quaternion.identity);
         }
+    }
+
+    public void DoesntHaveExtintor()
+    {
+        hasExtintor = false;
+    }
+    public void DoesntHaveMala()
+    {
+        hasMala = false;
     }
 }

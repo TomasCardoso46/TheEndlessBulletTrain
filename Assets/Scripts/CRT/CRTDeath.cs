@@ -1,4 +1,4 @@
-/*using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class DestroyOnParryZoneContact : MonoBehaviour
@@ -42,11 +42,27 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             int damage = 0;
             foreach (var grabScript in grabScripts)
             {
-                if (grabScript.HasObject)
+                if (grabScript.hasExtintor)
                 {
                     damage += 2;
-                    grabScript.grabIsFalse();
+                    grabScript.DoesntHaveExtintor();
                     Debug.Log("levaste 2 dano");
+                }
+                else if (grabScript.hasMala)
+                {
+                    damage += 2;
+                    grabScript.DoesntHaveMala();
+                    Debug.Log("levaste 2 dano");
+                }
+                else if (other.CompareTag("ThrowableExtintor"))
+                {
+                    misfortune += 1;
+                    UpdateUI();
+                }
+                else if (other.CompareTag("ThrowableMala"))
+                {
+                    misfortune += 1;
+                    UpdateUI();
                 }
                 else
                 {
@@ -60,12 +76,6 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             UpdateUI();
             CTRScript.resetTimer();
         }
-        else if (other.CompareTag("Mala") || other.CompareTag("Extintor"))
-        {
-            CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
-            misfortune += 1;
-            UpdateUI();
-        }
+        
     }
 }
-*/

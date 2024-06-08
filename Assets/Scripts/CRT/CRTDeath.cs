@@ -92,7 +92,13 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 
             UpdateUI();
         }
-        else if (other.CompareTag("Throw"))
+        else if (other.CompareTag("Mala"))
+        {
+            ApplyEnemyKnockback();
+            misfortune += 1;
+            UpdateUI();
+        }
+        else if (other.CompareTag("Extintor"))
         {
             ApplyEnemyKnockback();
             misfortune += 1;

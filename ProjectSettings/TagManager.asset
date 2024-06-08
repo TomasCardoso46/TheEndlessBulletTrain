@@ -10,9 +10,14 @@ TagManager:
   - obstacle
   - Pica
   - CRT
-  - Grab
   - Bullet
   - Misfortune
+  - Throw
+  - Extintor
+  - Mala
+  - ThrowableExtintor
+  - ThrowableMala
+  - Grab
   layers:
   - Default
   - TransparentFX

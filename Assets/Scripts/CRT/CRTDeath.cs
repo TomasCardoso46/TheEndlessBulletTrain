@@ -33,31 +33,12 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         
     }
 
-    // Call this method to apply knockback to the enemy
-    private void ApplyEnemyKnockback()
-    {
-        // Find the enemy GameObject with the FollowPlayer script attached
-        GameObject enemyObject = GameObject.FindGameObjectWithTag("CRT");
-
-        if (enemyObject != null)
-        {
-            // Get the FollowPlayer component from the enemy GameObject
-            FollowPlayer followPlayer = enemyObject.GetComponent<FollowPlayer>();
-
-            if (followPlayer != null)
-            {
-                // Calculate knockback force (example values)
-                Vector2 knockbackDirection = (enemyObject.transform.position - transform.position).normalized;
-                Vector2 knockbackForce = knockbackDirection * 5f; // Adjust as needed
-
-                // Call the ApplyKnockback method on the FollowPlayer component
-                followPlayer.ApplyKnockback(knockbackForce);
-            }
-        }
-    }
+    
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
         Debug.Log($"Triggered with: {other.name}"); // Log which object is triggering the event
         Debug.Log($"Other object's tag: {other.tag}");
 
@@ -74,7 +55,8 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 
             if (grabScript.hasObject == true)
             {
-                ApplyEnemyKnockback();
+
+                CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
                 misfortune += 2;
                 grabScript.grabIsFalse();
                 Debug.Log("levaste 2 dano");
@@ -83,7 +65,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             }
             else if (grabScript.hasObject == false)
             {
-                ApplyEnemyKnockback();
+                CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
                 misfortune += 1;
                 Debug.Log("levaste 1 dano");
                 UpdateUI();
@@ -94,13 +76,13 @@ public class DestroyOnParryZoneContact : MonoBehaviour
         }
         else if (other.CompareTag("Mala"))
         {
-            ApplyEnemyKnockback();
+            CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
             misfortune += 1;
             UpdateUI();
         }
         else if (other.CompareTag("Extintor"))
         {
-            ApplyEnemyKnockback();
+            CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
             misfortune += 1;
             UpdateUI();
         }

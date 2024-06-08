@@ -7,27 +7,24 @@ public class DestroyOnParryZoneContact : MonoBehaviour
     public FollowPlayer CTRScript;
     public Image Misfortune;
 
-    private GrabObject[] grabScripts; // Changed to an array to support multiple GrabObject scripts
+    private GrabObject grabScript;
 
     private void Start()
     {
-        grabScripts = FindObjectsOfType<GrabObject>(); // Find all GrabObject scripts in the scene
+        grabScript = FindObjectOfType<GrabObject>();
+        if (grabScript == null)
+        {
+            Debug.LogError("GrabObject script not found in the scene.");
+        }
     }
 
     private void UpdateUI()
     {
-        switch (misfortune)
+        Misfortune.fillAmount = misfortune / 2f; // Assuming max misfortune is 2 for full fillAmount
+
+        if (misfortune >= 2)
         {
-            case 0:
-                Misfortune.fillAmount = 0f;
-                break;
-            case 1:
-                Misfortune.fillAmount = 0.50f;
-                break;
-            case 2:
-                Misfortune.fillAmount = 1f;
-                Destroy(gameObject);
-                break;
+            Destroy(gameObject);
         }
     }
 
@@ -39,43 +36,40 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 
         if (other.CompareTag("ParryZone") && CTRScript.contactTimer >= 1.5f)
         {
-            int damage = 0;
-            foreach (var grabScript in grabScripts)
+            if (grabScript != null)
             {
                 if (grabScript.hasExtintor)
                 {
-                    damage += 2;
+                    misfortune += 2;
                     grabScript.DoesntHaveExtintor();
                     Debug.Log("levaste 2 dano");
                 }
                 else if (grabScript.hasMala)
                 {
-                    damage += 2;
+                    misfortune += 2;
                     grabScript.DoesntHaveMala();
                     Debug.Log("levaste 2 dano");
                 }
-                else if (other.CompareTag("ThrowableExtintor"))
-                {
-                    misfortune += 1;
-                    UpdateUI();
-                }
-                else if (other.CompareTag("ThrowableMala"))
-                {
-                    misfortune += 1;
-                    UpdateUI();
-                }
                 else
                 {
-                    damage += 1;
+                    misfortune += 1; // Take 1 misfortune if no item is held
                     Debug.Log("levaste 1 dano");
                 }
             }
-
+            else
+            {
+                misfortune += 1; // Take 1 misfortune if grabScript is not found
+                Debug.Log("levaste 1 dano");
+            }
             CTRScript.ApplyKnockbackToEnemy(knockbackDirection);
-            misfortune += damage;
             UpdateUI();
             CTRScript.resetTimer();
         }
-        
+        else if (other.CompareTag("ThrowableMala") || other.CompareTag("ThrowableExtintor"))
+        {
+            misfortune += 1;
+            Debug.Log("LEVASTE DANO");
+            UpdateUI();
+        }
     }
 }

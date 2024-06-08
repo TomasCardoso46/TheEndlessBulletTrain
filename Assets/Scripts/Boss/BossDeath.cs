@@ -1,21 +1,21 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BossDeath : MonoBehaviour
 {
-    [SerializeField]
-    public float misfortune;
+    [SerializeField] private float misfortune;
     public Boss bossscript;
-    
     public Image Misfortune;
 
-    private GrabObject grabScript = null;
+    private GrabObject[] grabScripts; // Changed to an array to support multiple GrabObject scripts
 
+    private void Start()
+    {
+        grabScripts = FindObjectsOfType<GrabObject>(); // Find all GrabObject scripts in the scene
+    }
 
     private void UpdateUI()
     {
-        //Troquem pra switch case
         switch (misfortune)
         {
             case 0:
@@ -40,7 +40,6 @@ public class BossDeath : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log($"Triggered with: {other.name}"); // Log which object is triggering the event
@@ -48,34 +47,26 @@ public class BossDeath : MonoBehaviour
 
         if (other.CompareTag("ParryZone") && bossscript.contactTimer >= 1.5f)
         {
-            if (grabScript == null)
+            int damage = 0;
+            foreach (var grabScript in grabScripts)
             {
-                grabScript = FindObjectOfType<GrabObject>();
-                if (grabScript == null)
+                if (grabScript.HasObject)
                 {
-                    return;
+                    damage += 2;
+                    Debug.Log($"levaste 2 dano");
+                    grabScript.PlaceObject(other.transform.position, other.transform.rotation); // Place the object if it is grabbed
+                }
+                else
+                {
+                    damage += 1;
+                    Debug.Log($"levaste 1 dano");
                 }
             }
 
-            if (grabScript.hasObject == true)
-            {
-                ApplyKnockback(other);
-                misfortune += 2;
-                grabScript.grabIsFalse();
-                Debug.Log("levaste 2 dano");
-                UpdateUI();
-                bossscript.resetTimer();
-            }
-            else if (grabScript.hasObject == false)
-            {
-                ApplyKnockback(other);
-                misfortune += 1;
-                Debug.Log("levaste 1 dano");
-                UpdateUI();
-                bossscript.resetTimer();
-            }
-
+            ApplyKnockback(other);
+            misfortune += damage;
             UpdateUI();
+            bossscript.resetTimer();
         }
         else if (other.CompareTag("Throw"))
         {
@@ -105,4 +96,3 @@ public class BossDeath : MonoBehaviour
         }
     }
 }
-

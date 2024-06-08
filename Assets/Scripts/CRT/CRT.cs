@@ -61,9 +61,9 @@ public class FollowPlayer : MonoBehaviour
                 }
 
                 if (contactTimer >= contactTimeThreshold)
-                {
-                    playerMovement.KBCounter = playerMovement.KBTotalTime;
+                {         
                     resetTimer();
+                    playerMovement.kb();
                     PlayerBodyScript.loseHealth();
                     animator.SetBool("IsAttacking", false);
                     return;   

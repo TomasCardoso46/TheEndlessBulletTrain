@@ -100,7 +100,10 @@ public class PlayerMovement : MonoBehaviour
         isRolling = false;
         yield return new WaitForSeconds(rollCooldown);    
         canRoll = true;
+    }
 
-
+    public void kb()
+    {
+        KBCounter = KBTotalTime;
     }
 }

@@ -13,7 +13,6 @@ TagManager:
   - Grab
   - Bullet
   - Misfortune
-  - Throw
   layers:
   - Default
   - TransparentFX

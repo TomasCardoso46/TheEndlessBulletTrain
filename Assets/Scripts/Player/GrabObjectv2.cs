@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GrabObject : MonoBehaviour
 {
-    [SerializeField] private GameObject PlaceDownPrefab; // Prefab to spawn
-    [SerializeField] private GameObject ThrowPrefab; // Prefab to throw
+    [SerializeField] private GameObject placeDownExtintor; // Prefab to spawn
+    [SerializeField] private GameObject throwExtintor; // Prefab to throw
+    [SerializeField] private GameObject placeDownMala; // Prefab to spawn
+    [SerializeField] private GameObject throwMala; // Prefab to throw
     [SerializeField] private GameObject spawnPoint; // Primary spawn point for the new object
     [SerializeField] private GameObject alternateSpawnPoint; // Alternate spawn point for the new object
     [SerializeField] private float throwForce = 10f; // Force to apply when throwing the object
@@ -13,6 +15,7 @@ public class GrabObject : MonoBehaviour
     [SerializeField] private bool canGrab = false;
     [SerializeField] public bool hasObject = false;
     private GameObject grabbedObject; // Reference to the grabbed object
+    private string grabbedTag; // Tag of the grabbed object
 
     private void Start()
     {
@@ -22,34 +25,22 @@ public class GrabObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Extintor"))
+        if (other.CompareTag("Extintor") || other.CompareTag("Mala"))
         {
             canGrab = true;
             grabbedObject = other.gameObject;
-            Debug.Log("Extintor");
-        }
-
-        if (other.CompareTag("Mala"))
-        {
-            canGrab = true;
-            grabbedObject = other.gameObject;
-            Debug.Log("Mala");
+            grabbedTag = other.tag;
+            Debug.Log(other.tag);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Extintor"))
+        if (other.CompareTag("Extintor") || other.CompareTag("Mala"))
         {
             canGrab = false;
             grabbedObject = null;
-            Debug.Log("Object left grabbing area.");
-        }
-
-        if (other.CompareTag("Mala"))
-        {
-            canGrab = false;
-            grabbedObject = null;
+            grabbedTag = null;
             Debug.Log("Object left grabbing area.");
         }
     }
@@ -66,35 +57,49 @@ public class GrabObject : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.T) && alternateSpawnPoint != null)
             {
-                ThrowObject(alternateSpawnPoint.transform.position, alternateSpawnPoint.transform.rotation);
+                if (grabbedTag == "Extintor")
+                {
+                    ThrowExtintor(alternateSpawnPoint.transform.position, alternateSpawnPoint.transform.rotation);
+                }
+                else if (grabbedTag == "Mala")
+                {
+                    ThrowMala(alternateSpawnPoint.transform.position, alternateSpawnPoint.transform.rotation);
+                }
                 hasObject = false;
             }
             else if (Input.GetKeyDown(KeyCode.Q) && spawnPoint != null)
             {
-                PlaceDownObject(spawnPoint.transform.position, spawnPoint.transform.rotation);
+                if (grabbedTag == "Extintor")
+                {
+                    PlaceDownExtintor(spawnPoint.transform.position, spawnPoint.transform.rotation);
+                }
+                else if (grabbedTag == "Mala")
+                {
+                    PlaceDownMala(spawnPoint.transform.position, spawnPoint.transform.rotation);
+                }
                 hasObject = false;
             }
         }
     }
 
-    private void PlaceDownObject(Vector3 position, Quaternion rotation)
+    private void PlaceDownExtintor(Vector3 position, Quaternion rotation)
     {
-        if (PlaceDownPrefab != null)
+        if (placeDownExtintor != null)
         {
-            grabbedObject = Instantiate(PlaceDownPrefab, position, rotation);
-            Debug.Log("Object placed down at primary spawn point.");
+            grabbedObject = Instantiate(placeDownExtintor, position, rotation);
+            Debug.Log("Extintor placed down at primary spawn point.");
         }
         else
         {
-            Debug.LogError("PlaceDownPrefab is not assigned.");
+            Debug.LogError("placeDownExtintor is not assigned.");
         }
     }
 
-    private void ThrowObject(Vector3 position, Quaternion rotation)
+    private void ThrowExtintor(Vector3 position, Quaternion rotation)
     {
-        if (ThrowPrefab != null)
+        if (throwExtintor != null)
         {
-            grabbedObject = Instantiate(ThrowPrefab, position, rotation);
+            grabbedObject = Instantiate(throwExtintor, position, rotation);
             Rigidbody2D rb = grabbedObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
@@ -106,7 +111,7 @@ public class GrabObject : MonoBehaviour
 
                 // Apply force in the calculated direction
                 rb.AddForce(throwDirection.normalized * throwForce, ForceMode2D.Impulse);
-                Debug.Log("Object spawned and thrown from alternate spawn point.");
+                Debug.Log("Extintor spawned and thrown from alternate spawn point.");
             }
             else
             {
@@ -115,11 +120,53 @@ public class GrabObject : MonoBehaviour
         }
         else
         {
-            Debug.LogError("ThrowPrefab is not assigned.");
+            Debug.LogError("throwExtintor is not assigned.");
         }
     }
 
-    public void grabIsFalse ()
+    private void PlaceDownMala(Vector3 position, Quaternion rotation)
+    {
+        if (placeDownMala != null)
+        {
+            grabbedObject = Instantiate(placeDownMala, position, rotation);
+            Debug.Log("Mala placed down at primary spawn point.");
+        }
+        else
+        {
+            Debug.LogError("placeDownMala is not assigned.");
+        }
+    }
+
+    private void ThrowMala(Vector3 position, Quaternion rotation)
+    {
+        if (throwMala != null)
+        {
+            grabbedObject = Instantiate(throwMala, position, rotation);
+            Rigidbody2D rb = grabbedObject.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                // Set gravity scale to 0 to ignore gravity
+                rb.gravityScale = 0;
+
+                // Calculate throw direction based on player's direction
+                Vector2 throwDirection = new Vector2(transform.localScale.x, 0); // Assuming x scale < 0 when facing left
+
+                // Apply force in the calculated direction
+                rb.AddForce(throwDirection.normalized * throwForce, ForceMode2D.Impulse);
+                Debug.Log("Mala spawned and thrown from alternate spawn point.");
+            }
+            else
+            {
+                Debug.LogError("Spawned object does not have a Rigidbody2D component.");
+            }
+        }
+        else
+        {
+            Debug.LogError("throwMala is not assigned.");
+        }
+    }
+
+    public void grabIsFalse()
     {
         hasObject = false;
     }

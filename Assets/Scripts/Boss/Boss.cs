@@ -58,7 +58,6 @@ public class Boss : MonoBehaviour
                 if (contactTimer >= contactTimeThreshold)
                 {         
                     resetTimer();
-                    playerMovement.kb();
                     PlayerBodyScript.loseHealth();
                     animator.SetBool("IsAttacking", false);
                     return;   
@@ -105,16 +104,7 @@ public class Boss : MonoBehaviour
             {
                 inContact();
                 Debug.Log("Contact with player started.");
-                if (other.transform.position.x <= transform.position.x)
-                {
-                    playerMovement.KnockFromRight = true;
-                    EKnockFromRight = false;
-                }
-                if (other.transform.position.x <= transform.position.x)
-                {
-                    playerMovement.KnockFromRight = false;
-                    EKnockFromRight = true;
-                }
+                
             }
             else
             {

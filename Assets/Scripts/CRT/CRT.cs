@@ -37,6 +37,7 @@ public class FollowPlayer : MonoBehaviour
                 return;
             }
         }
+
         if (PlayerBodyScript != null)
         { 
             if (isInContact)
@@ -63,6 +64,8 @@ public class FollowPlayer : MonoBehaviour
                 resetTimer();
             }
         }
+        
+        
 
         if (playerTransform != null)
         {
@@ -85,6 +88,16 @@ public class FollowPlayer : MonoBehaviour
                 {
                     animator.SetBool("IsMoving", false);
                 }
+            }
+            if (direction.x > 0)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                
+            }
+            else
+            {
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                
             }
         }
     }

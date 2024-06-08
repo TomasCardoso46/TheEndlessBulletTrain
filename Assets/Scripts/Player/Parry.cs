@@ -9,10 +9,10 @@ public class Parry : MonoBehaviour
     public Transform playerTransform; // The Player's Transform, set via the Inspector
     private Animator animator;
     private bool canParry = true; // Bool to track if parry is available
+    private bool isParrying = false; // Bool to track if parry is currently active
     public GrabObject GrabScript;
     public DestroyOnParryZoneContact CRTD;
     public FollowPlayer CRTScript;
-
 
     void Start()
     {
@@ -26,27 +26,27 @@ public class Parry : MonoBehaviour
         {
             StartCoroutine(ParryAction());
         }
-         
     }
 
-    private void DestroyObject(bool v)
+    public bool IsParrying()
     {
-        throw new NotImplementedException();
+        return isParrying;
     }
 
     private IEnumerator ParryAction()
     {
         canParry = false; // Set canParry to false to prevent another parry
+        isParrying = true; // Set isParrying to true to indicate parry is active
         animator.SetTrigger("Parry");
 
         // Calculate the spawn position with a slight offset to the left of the Player
         Vector3 spawnPosition = playerTransform.position;
-       
 
         // Instantiate the object at the calculated position
         Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
 
         yield return new WaitForSeconds(1f); // Wait for 1 second
+        isParrying = false; // Reset isParrying to false after the cooldown
         canParry = true; // Reset canParry to true after the cooldown
     }
 }

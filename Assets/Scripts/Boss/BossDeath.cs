@@ -11,35 +11,32 @@ public class BossDeath : MonoBehaviour
     public Image Misfortune;
 
     private GrabObject grabScript = null;
-    
+
 
     private void UpdateUI()
     {
         //Troquem pra switch case
-        if (misfortune == 0)
+        switch (misfortune)
         {
-            Misfortune.fillAmount = 0f;
-        }
-        else if (misfortune == 1)
-        {
-            Misfortune.fillAmount = 0.20f;
-        }
-        else if (misfortune == 2)
-        {
-            Misfortune.fillAmount = 0.40f;           
-        }
-        else if (misfortune == 3)
-        {
-            Misfortune.fillAmount = 0.60f;
-        }
-        else if (misfortune == 4)
-        {
-            Misfortune.fillAmount = 0.80f;
-        }
-        else if (misfortune == 5)
-        {
-            Misfortune.fillAmount = 1f;
-            Destroy(gameObject);
+            case 0:
+                Misfortune.fillAmount = 0f;
+                break;
+            case 1:
+                Misfortune.fillAmount = 0.20f;
+                break;
+            case 2:
+                Misfortune.fillAmount = 0.40f;
+                break;
+            case 3:
+                Misfortune.fillAmount = 0.60f;
+                break;
+            case 4:
+                Misfortune.fillAmount = 0.80f;
+                break;
+            case 5:
+                Misfortune.fillAmount = 1f;
+                Destroy(gameObject);
+                break;
         }
     }
 

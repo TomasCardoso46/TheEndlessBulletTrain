@@ -836,6 +836,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 797948324}
     - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
+      propertyPath: chargeSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: followDistance
       value: 1.2
       objectReference: {fileID: 0}
@@ -934,11 +938,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2951748425596987980, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6167765
+      value: 8.23
       objectReference: {fileID: 0}
     - target: {fileID: 2951748425596987980, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2691436
+      value: -3.26
       objectReference: {fileID: 0}
     - target: {fileID: 2951748425596987980, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: m_LocalPosition.z

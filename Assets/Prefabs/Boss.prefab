@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5124829402024242869}
   - component: {fileID: 7525242649118433200}
   - component: {fileID: -4134537853039852698}
+  - component: {fileID: -2509535273821516073}
   - component: {fileID: -6338448481781528878}
   - component: {fileID: 4592593945080863225}
   - component: {fileID: 66592013445605271}
@@ -130,6 +131,19 @@ MonoBehaviour:
   misfortune: 0
   bossscript: {fileID: 0}
   Misfortune: {fileID: 0}
+--- !u!114 &-2509535273821516073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638431256998197294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d37ef2b28897c64d80968d11185f13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeSpeed: 5
 --- !u!70 &-6338448481781528878
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

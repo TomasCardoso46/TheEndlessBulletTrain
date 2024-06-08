@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 673472298422035975}
   - component: {fileID: -2596037254523007383}
   m_Layer: 0
-  m_Name: Place
+  m_Name: Extintor
   m_TagString: Grab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

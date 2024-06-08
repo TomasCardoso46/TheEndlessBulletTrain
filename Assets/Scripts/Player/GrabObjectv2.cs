@@ -22,17 +22,31 @@ public class GrabObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Grab"))
+        if (other.CompareTag("Extintor"))
         {
             canGrab = true;
             grabbedObject = other.gameObject;
-            Debug.Log("Object entered grabbing area.");
+            Debug.Log("Extintor");
+        }
+
+        if (other.CompareTag("Mala"))
+        {
+            canGrab = true;
+            grabbedObject = other.gameObject;
+            Debug.Log("Mala");
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Grab"))
+        if (other.CompareTag("Extintor"))
+        {
+            canGrab = false;
+            grabbedObject = null;
+            Debug.Log("Object left grabbing area.");
+        }
+
+        if (other.CompareTag("Mala"))
         {
             canGrab = false;
             grabbedObject = null;

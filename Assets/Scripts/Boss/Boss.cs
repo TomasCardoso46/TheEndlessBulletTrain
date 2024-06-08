@@ -1,9 +1,11 @@
 using UnityEngine;
+
 public class Boss : MonoBehaviour
 {
     public Animator animator;
     public float speed = 5.0f;
     public float followDistance = 0.5f;
+    public float chargeDistance = 5.0f; // Distance at which the boss initiates a charged attack
     public Rigidbody2D enemyRb;
     private Transform playerTransform;
     public PlayerMovement playerMovement;
@@ -17,26 +19,30 @@ public class Boss : MonoBehaviour
     public bool EKnockFromRight;
     public bool isInContact = false;
 
+    private BossMoveSet bossMoveSet;
+
     void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        if (playerObject != null && EKBCounter <=0)
+        if (playerObject != null && EKBCounter <= 0)
         {
             playerTransform = playerObject.transform;
         }
         else
         {
-            if (EKnockFromRight == true)
+            if (EKnockFromRight)
             {
                 enemyRb.velocity = new Vector2(-EKBForce, EKBForce);
             }
-            if (EKnockFromRight == false)
+            else
             {
                 enemyRb.velocity = new Vector2(EKBForce, EKBForce);
             }
             EKBCounter -= Time.deltaTime;
         }
+
+        bossMoveSet = GetComponent<BossMoveSet>();
     }
 
     void Update()
@@ -49,21 +55,20 @@ public class Boss : MonoBehaviour
                 return;
             }
         }
+
         if (PlayerBodyScript != null)
-        { 
+        {
             if (isInContact)
             {
                 contactTimer += Time.deltaTime;
 
                 if (contactTimer >= contactTimeThreshold)
-                {         
+                {
                     resetTimer();
                     PlayerBodyScript.loseHealth();
                     animator.SetBool("IsAttacking", false);
-                    return;   
+                    return;
                 }
-                
-
             }
             else
             {
@@ -85,6 +90,11 @@ public class Boss : MonoBehaviour
                 {
                     animator.SetBool("IsMoving", true);
                 }
+
+                if (distance > chargeDistance) // Check if the distance is greater than chargeDistance
+                {
+                    bossMoveSet.TryInitiateChargedAttack(chargeDistance);
+                }
             }
             else
             {
@@ -104,7 +114,6 @@ public class Boss : MonoBehaviour
             {
                 inContact();
                 Debug.Log("Contact with player started.");
-                
             }
             else
             {
@@ -112,6 +121,7 @@ public class Boss : MonoBehaviour
             }
         }
     }
+
     void OnTriggerExit2D(Collider2D other)
     {
         notInContact();

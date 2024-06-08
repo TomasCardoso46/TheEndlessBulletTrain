@@ -948,6 +948,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5344070472957621020, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: throwMala
+      value: 
+      objectReference: {fileID: 7697197777443490995, guid: f7f50686ec99de541a8a4275f3445e5d, type: 3}
+    - target: {fileID: -5344070472957621020, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: placeDownMala
+      value: 
+      objectReference: {fileID: 7697197777443490995, guid: e73d5b1ff5a6a6941a517b3b4bfd2f0c, type: 3}
+    - target: {fileID: -5344070472957621020, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: throwExtintor
+      value: 
+      objectReference: {fileID: 7697197777443490995, guid: 3a57afd45da8b5741842d9cb5ada14b4, type: 3}
+    - target: {fileID: -5344070472957621020, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: placeDownExtintor
+      value: 
+      objectReference: {fileID: 7697197777443490995, guid: b1472382515a6c54994e9f0f08debed4, type: 3}
     - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: KBCounter
       value: 0

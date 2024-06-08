@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2596037254523007383}
   m_Layer: 0
   m_Name: Mala
-  m_TagString: Grab
+  m_TagString: Mala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

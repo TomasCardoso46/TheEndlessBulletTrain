@@ -80,6 +80,16 @@ public class Boss : MonoBehaviour
         {
             Vector3 direction = playerTransform.position - transform.position;
             float distance = direction.magnitude;
+            if (direction.x > 0)
+                {
+                    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                    
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                    
+                }
 
             if (distance > followDistance)
             {

@@ -78,6 +78,7 @@ public class BossDeath : MonoBehaviour
         {
             ApplyKnockback(other);
             misfortune += 1;
+            
             UpdateUI();
         }
         else if (other.CompareTag("ThrowableMala"))
@@ -85,6 +86,7 @@ public class BossDeath : MonoBehaviour
             ApplyKnockback(other);
             misfortune += 1;
             UpdateUI();
+            
         }
         else
         {

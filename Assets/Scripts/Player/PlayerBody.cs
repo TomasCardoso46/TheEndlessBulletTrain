@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerBody : MonoBehaviour
 {
-    public int health = 3; // Player health
     public UIHealth uiheatlh;
-    
+    public GameManager gameManagerScript;
+
     [SerializeField]
     private FollowPlayer CRTScript;
 
@@ -27,7 +27,7 @@ public class PlayerBody : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             // Decrease health
-            LoseHealth();
+            gameManagerScript.LoseHealth();
         }
     }
 
@@ -40,10 +40,5 @@ public class PlayerBody : MonoBehaviour
         }
     }
 
-    public void LoseHealth()
-    {
-        health -= 1;
-        health = Mathf.Clamp(health, 0, 3);  // Ensure health does not go below 0
-        uiheatlh.UpdateHealthSprite();
-    }
+    
 }

@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour
     private Transform playerTransform;
     public PlayerMovement playerMovement;
     private PlayerBody PlayerBodyScript = null;
+    public GameManager gameManagerScript;
     public float contactTimeThreshold = 3.0f;
     [SerializeField]
     public float contactTimer = 0.0f;
@@ -66,7 +67,7 @@ public class Boss : MonoBehaviour
                 if (contactTimer >= contactTimeThreshold)
                 {
                     resetTimer();
-                    PlayerBodyScript.LoseHealth();
+                    gameManagerScript.LoseHealth();
                     animator.SetBool("IsAttacking", false);
                     return;
                 }

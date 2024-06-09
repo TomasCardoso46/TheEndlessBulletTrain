@@ -253,6 +253,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &26422247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7329340408484081481, guid: 3936994dc0243fb45ab2882bc821b89b, type: 3}
+  m_PrefabInstance: {fileID: 1595840937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebfe005d0bd8d1c458f7be25f84f1496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &33786093 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4900580146385682814, guid: 926aff8ced590de4f89b9f6e3e18ec1d, type: 3}
@@ -1545,6 +1556,10 @@ PrefabInstance:
       propertyPath: audioScript
       value: 
       objectReference: {fileID: 1525341004}
+    - target: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+      propertyPath: gameManagerScript
+      value: 
+      objectReference: {fileID: 26422247}
     - target: {fileID: 134163823251174806, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
       propertyPath: m_SortingOrder
       value: 8
@@ -1670,6 +1685,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7329340408484081481, guid: 3936994dc0243fb45ab2882bc821b89b, type: 3}
+      propertyPath: playerscript
+      value: 
+      objectReference: {fileID: 2125823885}
     - target: {fileID: 8541766646060254215, guid: 3936994dc0243fb45ab2882bc821b89b, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1806,6 +1825,10 @@ PrefabInstance:
       propertyPath: KBCounter
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: audioScript
+      value: 
+      objectReference: {fileID: 1525341004}
     - target: {fileID: 979659908685377152, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1886,6 +1909,10 @@ PrefabInstance:
       propertyPath: healthBar3
       value: 
       objectReference: {fileID: 21300000, guid: be4a2fe5c5bce7d428a574c8631c81bb, type: 3}
+    - target: {fileID: 6077717530797534852, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: gameManagerScript
+      value: 
+      objectReference: {fileID: 26422247}
     - target: {fileID: 7331595456998157782, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2306,6 +2333,10 @@ PrefabInstance:
       propertyPath: healthBar3
       value: 
       objectReference: {fileID: 21300000, guid: be4a2fe5c5bce7d428a574c8631c81bb, type: 3}
+    - target: {fileID: 4900580146385682814, guid: 926aff8ced590de4f89b9f6e3e18ec1d, type: 3}
+      propertyPath: gameManagerBody
+      value: 
+      objectReference: {fileID: 26422247}
     - target: {fileID: 4900580146385682814, guid: 926aff8ced590de4f89b9f6e3e18ec1d, type: 3}
       propertyPath: playerBodyScript
       value: 

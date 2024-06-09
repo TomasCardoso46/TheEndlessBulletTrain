@@ -10,6 +10,7 @@ public class UIHealth : MonoBehaviour
     public Sprite healthBar3;  // 0 health or dead
     private SpriteRenderer spriteRenderer;
     public PlayerBody playerBodyScript;
+    public GameManager gameManagerBody;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class UIHealth : MonoBehaviour
 
     public void UpdateHealthSprite()
     {
-        switch (playerBodyScript.health)
+        switch (gameManagerBody.health)
         {
             case 3:
                 spriteRenderer.sprite = healthBar3;
@@ -42,7 +43,7 @@ public class UIHealth : MonoBehaviour
             case 0:
             default:
                 spriteRenderer.sprite = healthBar0;
-                if (playerBodyScript.health <= 0)
+                if (gameManagerBody.health <= 0)
                 {
                     DestroyPlayer();
                 }

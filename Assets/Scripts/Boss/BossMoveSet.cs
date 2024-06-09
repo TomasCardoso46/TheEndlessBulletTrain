@@ -9,6 +9,7 @@ public class BossMoveSet : MonoBehaviour
     private bool isCharging = false; // Flag to indicate if the boss is performing a charged attack
     private PlayerBody PlayerBodyScript = null;
     private Parry playerParryScript;
+    public GameManager gameManagerScript;
     public BossDeath bossDeathScript;
     public Transform SpawnPoint;
     public int speed;
@@ -102,7 +103,7 @@ public class BossMoveSet : MonoBehaviour
             }
             else if (PlayerBodyScript != null)
             {
-                PlayerBodyScript.LoseHealth(); // Damage the player on contact during charged attack
+                gameManagerScript.LoseHealth(); // Damage the player on contact during charged attack
                 isCharging = false; // Reset charging state
                 Debug.Log("Charged attack hit the player!");
             }

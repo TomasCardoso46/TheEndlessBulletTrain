@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f; // Adjust the speed as needed
     private Animator animator;
     public Rigidbody2D playerRb;
+    public Audio audioScript;
     private bool isFacingRight = true; // Start facing right by default
     
     private bool canRoll = true;
@@ -50,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Calculate movement vector
             Vector3 movement = new Vector3(horizontalInput, 0f, 0f) * speed * Time.deltaTime;
-
+            // audioScript.PlayerMovement();
             transform.Translate(movement);
         }
     }

@@ -7,6 +7,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
     public FollowPlayer CTRScript;
     public Image MisfortuneLeft;
     public Image MisfortuneRight;
+    public Audio audioScript;
 
     private GrabObject grabScript;
 
@@ -42,24 +43,28 @@ public class DestroyOnParryZoneContact : MonoBehaviour
             {
                 if (grabScript.hasExtintor)
                 {
+                    audioScript.Parry();
                     misfortune += 2;
                     grabScript.DoesntHaveExtintor();
                     Debug.Log("levaste 2 dano");
                 }
                 else if (grabScript.hasMala)
                 {
+                    audioScript.Parry();
                     misfortune += 2;
                     grabScript.DoesntHaveMala();
                     Debug.Log("levaste 2 dano");
                 }
                 else
                 {
+                    audioScript.Parry();
                     misfortune += 1; // Take 1 misfortune if no item is held
                     Debug.Log("levaste 1 dano");
                 }
             }
             else
             {
+                audioScript.Parry();
                 misfortune += 1; // Take 1 misfortune if grabScript is not found
                 Debug.Log("levaste 1 dano");
             }

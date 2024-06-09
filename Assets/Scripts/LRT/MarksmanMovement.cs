@@ -6,6 +6,7 @@ using UnityEngine;
 public class MarksmanMovement : MonoBehaviour
 {
     public Transform SpawnPoint;
+    public Audio audioScript;
     public float speed = 5.0f;
     public float followDistance = 0.5f;
     private Transform playerTransform;
@@ -85,6 +86,7 @@ public class MarksmanMovement : MonoBehaviour
 
     void ShootPlayer()
     {
+        audioScript.ShootLRT();
         Vector3 shootDirection = (playerTransform.position - SpawnPoint.position).normalized;
         GameObject bulletInstance = Instantiate(bullet, SpawnPoint.position, Quaternion.identity);
         bulletInstance.GetComponent<Rigidbody2D>().velocity = shootDirection * speed;

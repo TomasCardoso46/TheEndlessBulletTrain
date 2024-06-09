@@ -109,4 +109,10 @@ public class BossDeath : MonoBehaviour
             bossscript.EKnockFromRight = false;
         }
     }
+
+    public void MisfortuneApplication()
+    {
+        misfortune += 1;
+        UpdateUI();
+    }
 }

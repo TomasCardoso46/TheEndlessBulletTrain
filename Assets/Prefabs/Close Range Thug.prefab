@@ -105,8 +105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   misfortune: 0
   CTRScript: {fileID: 130990685479332940}
-  MisfortuneLeft: {fileID: 0}
-  MisfortuneRight: {fileID: 0}
+  MisfortuneLeft: {fileID: 7624816551060293126}
+  MisfortuneRight: {fileID: 6883071383504416766}
+  audioScript: {fileID: 0}
 --- !u!114 &130990685479332940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +125,7 @@ MonoBehaviour:
   followDistance: 1.2
   enemyRb: {fileID: 4592593945080863225}
   playerMovement: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+  audioScript: {fileID: 0}
   contactTimeThreshold: 3
   contactTimer: 0
   isInContact: 0
@@ -497,3 +499,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3000211189908787819, guid: 1fe474edf153ce345ad92d6ece520bbb, type: 3}
   m_PrefabInstance: {fileID: 9050737829392881250}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7624816551060293126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1462091371296903268, guid: 1fe474edf153ce345ad92d6ece520bbb, type: 3}
+  m_PrefabInstance: {fileID: 9050737829392881250}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

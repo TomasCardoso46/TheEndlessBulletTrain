@@ -999,6 +999,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102266642}
     - target: {fileID: -2509535273821516073, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2509535273821516073, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: bossDeathScript
       value: 
       objectReference: {fileID: 487023134}

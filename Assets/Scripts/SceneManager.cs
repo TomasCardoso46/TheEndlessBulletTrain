@@ -34,4 +34,19 @@ public class MySceneManager : MonoBehaviour
     {
         return GameObject.FindGameObjectsWithTag(tag).Length == 0;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene(4);
+    }
+
+    public void BackCredits()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

@@ -112,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1879840599, guid: 6c66fe5d7dca22b42a740091ad9705b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -140,14 +140,13 @@ MonoBehaviour:
   speed: 5
   followDistance: 0.5
   chargeDistance: 5
+  knockbackForce: 0
+  isBeingKnockedBack: 0
   enemyRb: {fileID: 0}
   playerMovement: {fileID: 0}
+  gameManagerScript: {fileID: 0}
   contactTimeThreshold: 3
   contactTimer: 0
-  EKBForce: 0
-  EKBCounter: 0
-  EKBTotalTime: 0
-  EKnockFromRight: 0
   isInContact: 0
 --- !u!114 &-4134537853039852698
 MonoBehaviour:
@@ -177,6 +176,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeSpeed: 5
+  initialSpeed: 3
+  gameManagerScript: {fileID: 0}
+  bossDeathScript: {fileID: 0}
+  boss: {fileID: 0}
   SpawnPoint: {fileID: 5850325604714815819}
   speed: 5
   knife: {fileID: 7016542042611341071, guid: e8d9f7df6b5084342b35ac2246830287, type: 3}

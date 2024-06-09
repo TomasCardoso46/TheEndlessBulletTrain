@@ -140,6 +140,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1041759471}
     - target: {fileID: -2509535273821516073, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1041759471}
+    - target: {fileID: -2509535273821516073, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: bossDeathScript
       value: 
       objectReference: {fileID: 1041759470}
@@ -201,12 +205,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: speed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: enemyRb
       value: 
       objectReference: {fileID: 1041759467}
+    - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
+      propertyPath: EKBForce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1598250754}
+    - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
+      propertyPath: isInContact
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
+      propertyPath: EKBTotalTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7525242649118433200, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: chargeDistance
       value: 3
@@ -1643,6 +1663,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3936994dc0243fb45ab2882bc821b89b, type: 3}
+--- !u!95 &1598250754 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 66592013445605271, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
+  m_PrefabInstance: {fileID: 10108030}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1938232027 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7329340408484081481, guid: 3936994dc0243fb45ab2882bc821b89b, type: 3}

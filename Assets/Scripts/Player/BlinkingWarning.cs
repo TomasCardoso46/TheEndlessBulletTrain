@@ -13,7 +13,7 @@ public class BlinkingWarning : MonoBehaviour
     private void Start()
     {
         // Start the repeated spawning of the object every 10 seconds
-        InvokeRepeating(nameof(SpawnObject), 0f, spawnInterval);
+        InvokeRepeating(nameof(SpawnObject), 10f, spawnInterval);
     }
 
     private IEnumerator BlinkRoutine()

@@ -11,6 +11,7 @@ public class BossMoveSet : MonoBehaviour
     private Parry playerParryScript;
     public GameManager gameManagerScript;
     public BossDeath bossDeathScript;
+    public Boss boss;
     public Transform SpawnPoint;
     public int speed;
     public GameObject knife;
@@ -59,6 +60,8 @@ public class BossMoveSet : MonoBehaviour
         }
     }
 
+
+
     private void PerformChargedAttack()
     {
         if (playerTransform == null) return;
@@ -103,6 +106,7 @@ public class BossMoveSet : MonoBehaviour
             }
             else if (PlayerBodyScript != null)
             {
+                boss.ApplyKnockbackToPlayer();
                 gameManagerScript.LoseHealth(); // Damage the player on contact during charged attack
                 isCharging = false; // Reset charging state
                 Debug.Log("Charged attack hit the player!");
@@ -125,4 +129,6 @@ public class BossMoveSet : MonoBehaviour
             }
         }
     }
+
+    
 }

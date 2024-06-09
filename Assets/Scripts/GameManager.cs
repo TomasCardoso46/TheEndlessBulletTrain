@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; // Singleton instance
 
     public int strikes = 0; // Number of strikes
-    public int health = 0;
+    public int health = 3;
     public int gualter = 0;
     public SpriteRenderer playerSpriteRenderer;
     public GameObject playerPrefab;

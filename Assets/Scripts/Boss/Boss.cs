@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Boss : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class Boss : MonoBehaviour
     public float speed = 3.0f;
     public float followDistance = 0.5f;
     public float chargeDistance = 3f; // Distance at which the boss initiates a charged attack
+    public float knockbackForce;
+    public bool isBeingKnockedBack = false;
     public Rigidbody2D enemyRb;
     private Transform playerTransform;
     public PlayerMovement playerMovement;
@@ -14,10 +17,7 @@ public class Boss : MonoBehaviour
     public float contactTimeThreshold = 3.0f;
     [SerializeField]
     public float contactTimer = 0.0f;
-    public float EKBForce;
-    public float EKBCounter;
-    public float EKBTotalTime;
-    public bool EKnockFromRight;
+    
     public bool isInContact = false;
     
 
@@ -27,22 +27,11 @@ public class Boss : MonoBehaviour
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        if (playerObject != null && EKBCounter <= 0)
+        if (playerObject != null)
         {
             playerTransform = playerObject.transform;
         }
-        else
-        {
-            if (EKnockFromRight)
-            {
-                enemyRb.velocity = new Vector2(-EKBForce, EKBForce);
-            }
-            else
-            {
-                enemyRb.velocity = new Vector2(EKBForce, EKBForce);
-            }
-            EKBCounter -= Time.deltaTime;
-        }
+        
 
         bossMoveSet = GetComponent<BossMoveSet>();
     }
@@ -67,6 +56,7 @@ public class Boss : MonoBehaviour
                 if (contactTimer >= contactTimeThreshold)
                 {
                     resetTimer();
+                    ApplyKnockbackToPlayer();
                     gameManagerScript.LoseHealth();
                     animator.SetBool("IsAttacking", false);
                     return;
@@ -154,6 +144,33 @@ public class Boss : MonoBehaviour
     public void notInContact()
     {
         isInContact = false;
+    }
+    private IEnumerator Knockback(Vector2 direction)
+    {
+        isBeingKnockedBack = true;
+        enemyRb.velocity = direction * knockbackForce;
+
+        yield return new WaitForSeconds(0.5f); // Adjust this value as needed
+
+        isBeingKnockedBack = false;
+    }
+
+    public void ApplyKnockbackToBoss(Vector2 direction)
+    {
+        if (!isBeingKnockedBack)
+        {
+            StartCoroutine(Knockback(direction));
+        }
+    }
+
+    public void ApplyKnockbackToPlayer()
+    {
+        if (playerTransform != null && playerMovement != null)
+        {
+            Vector2 knockbackDirection = (playerTransform.position - transform.position).normalized;
+            Vector2 knockbackForceVector = knockbackDirection * knockbackForce;
+            playerMovement.ApplyKnockback(knockbackForceVector);
+        }
     }
     
 }

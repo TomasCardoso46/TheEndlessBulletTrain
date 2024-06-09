@@ -5,8 +5,8 @@ using UnityEngine;
 public class YakuzaSpawner : MonoBehaviour
 {
     public GameObject SpawnPoint1;
-    public GameObject SpawnPoint2;
-    public GameObject objectToSpawn;
+    
+    public Transform objectToSpawn;
     private GameObject SpawnPoint;
     [SerializeField]
     private int numberOfEnemies = 0;
@@ -20,19 +20,20 @@ public class YakuzaSpawner : MonoBehaviour
     }
     void Update()
     {
-        if (numberOfEnemies <=1 && startSpawn == true && canSpawn == true)
+        if (numberOfEnemies <1 && startSpawn == true && canSpawn == true)
         {
             StartCoroutine(WaitForEnemies());
             SpawnObject();
             canSpawn = false;
-            SwitchSpawnPoint();
+            
         }
     }
     public void SpawnObject()
     {
 
-        Instantiate(objectToSpawn, SpawnPoint.transform.position, Quaternion.identity);
+        objectToSpawn.transform.position = SpawnPoint.transform.position;
         numberOfEnemies++;
+        
     }
     IEnumerator WaitForEnemies()
     {
@@ -48,20 +49,7 @@ public class YakuzaSpawner : MonoBehaviour
             startSpawn = true;
         }
     }
-    void SwitchSpawnPoint()
-    {
-        if (leftSpawner)
-        {
-            SpawnPoint = SpawnPoint2;
-            leftSpawner = false;
-
-        }
-        else
-        {
-            SpawnPoint = SpawnPoint1;
-            leftSpawner = true;
-        }
-    }
+    
 
 
 }

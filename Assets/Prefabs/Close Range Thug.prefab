@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 7
   m_Sprite: {fileID: -1879840599, guid: 6c66fe5d7dca22b42a740091ad9705b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   followDistance: 1.2
   enemyRb: {fileID: 4592593945080863225}
   playerMovement: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
-  gameManagerScript: {fileID: 0}
+  gameManagerScript: {fileID: 7329340408484081481, guid: 3936994dc0243fb45ab2882bc821b89b, type: 3}
   audioScript: {fileID: 0}
   contactTimeThreshold: 3
   contactTimer: 0
@@ -471,6 +471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI - Misfortune
       objectReference: {fileID: 0}
+    - target: {fileID: 3459386395340570872, guid: 1fe474edf153ce345ad92d6ece520bbb, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8415853101268709265, guid: 1fe474edf153ce345ad92d6ece520bbb, type: 3}
       propertyPath: m_SizeDelta.x
       value: 236.67
@@ -485,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8954857360430408692, guid: 1fe474edf153ce345ad92d6ece520bbb, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

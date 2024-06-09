@@ -43,7 +43,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ae756dbd0ca929940aac3068f91b7e14, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -144,3 +144,5 @@ MonoBehaviour:
   audioSource: {fileID: 1316009294462320809}
   playerHit: {fileID: 8300000, guid: ae756dbd0ca929940aac3068f91b7e14, type: 3}
   parry: {fileID: 8300000, guid: dc26e8a3dd57393478d1b1f2bbedda22, type: 3}
+  playerMovement: {fileID: 0}
+  shootLRT: {fileID: 0}

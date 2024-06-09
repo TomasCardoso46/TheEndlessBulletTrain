@@ -5,7 +5,8 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 {
     [SerializeField] private float misfortune;
     public FollowPlayer CTRScript;
-    public Image Misfortune;
+    public Image MisfortuneLeft;
+    public Image MisfortuneRight;
 
     private GrabObject grabScript;
 
@@ -20,9 +21,10 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 
     private void UpdateUI()
     {
-        Misfortune.fillAmount = misfortune / 2f; // Assuming max misfortune is 2 for full fillAmount
+        MisfortuneLeft.fillAmount = misfortune / 4f; // Assuming max misfortune is 2 for full fillAmount
+        MisfortuneRight.fillAmount = misfortune / 4f; // Assuming max misfortune is 2 for full fillAmount
 
-        if (misfortune >= 2)
+        if (misfortune >= 4)
         {
             Destroy(gameObject);
         }

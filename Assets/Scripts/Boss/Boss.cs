@@ -66,7 +66,7 @@ public class Boss : MonoBehaviour
                 if (contactTimer >= contactTimeThreshold)
                 {
                     resetTimer();
-                    PlayerBodyScript.loseHealth();
+                    PlayerBodyScript.LoseHealth();
                     animator.SetBool("IsAttacking", false);
                     return;
                 }

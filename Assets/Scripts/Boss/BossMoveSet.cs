@@ -102,7 +102,7 @@ public class BossMoveSet : MonoBehaviour
             }
             else if (PlayerBodyScript != null)
             {
-                PlayerBodyScript.loseHealth(); // Damage the player on contact during charged attack
+                PlayerBodyScript.LoseHealth(); // Damage the player on contact during charged attack
                 isCharging = false; // Reset charging state
                 Debug.Log("Charged attack hit the player!");
             }

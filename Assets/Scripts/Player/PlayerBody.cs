@@ -6,65 +6,44 @@ using UnityEngine.UI;
 public class PlayerBody : MonoBehaviour
 {
     public int health = 3; // Player health
-    public int strikes = 3;
-    public Image healthBar;
-    [SerializeField]
+    public UIHealth uiheatlh;
     
+    [SerializeField]
     private FollowPlayer CRTScript;
-
-
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     private void Update()
     {
-        //Troquem pra switch case
-        if (health == 3)
-        {
-            healthBar.fillAmount = 1f;
-        }
-        else if (health == 2)
-        {
-            healthBar.fillAmount = 0.66f;
-        }
-        else if (health == 1)
-        {
-            healthBar.fillAmount = 0.33f;
-        }
-        else if (health <= 0)
-        {
-            healthBar.fillAmount = 0f;
-            DestroyPlayer();
-        }
-        
-
+        // Only call UpdateHealthSprite() if necessary to reduce redundant calls
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bullet"))
         {
-            // Increase strikes in the GameManager
-            loseHealth();
-            Update();
-
-            // If strikes reach 3, destroy the object
+            // Decrease health
+            LoseHealth();
         }
     }
+
     private void DestroyPlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-            Object.Destroy(player);     
+        if (player != null)
+        {
+            Destroy(player);
+        }
     }
 
-    
-    public void loseHealth()
+    public void LoseHealth()
     {
         health -= 1;
-        return;
-
+        health = Mathf.Clamp(health, 0, 3);  // Ensure health does not go below 0
+        uiheatlh.UpdateHealthSprite();
     }
 }

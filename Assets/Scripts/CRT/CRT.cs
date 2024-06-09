@@ -55,7 +55,7 @@ public class FollowPlayer : MonoBehaviour
             {         
                 resetTimer();
                 audioScript.PlayerHit();
-                PlayerBodyScript.loseHealth();
+                PlayerBodyScript.LoseHealth();
                 ApplyKnockbackToPlayer();
                 animator.SetBool("IsAttacking", false);
                 return;   

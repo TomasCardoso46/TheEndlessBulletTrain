@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class UIHealth : MonoBehaviour
 {
-    public Sprite healthBar0;  // Full health
-    public Sprite healthBar1;  // 2/3 health
-    public Sprite healthBar2;  // 1/3 health
-    public Sprite healthBar3;  // 0 health or dead
+    public Sprite healthBar0;  // 0 health or dead
+    public Sprite healthBar1;  // 1/3 health
+    public Sprite healthBar2;  // 2/3 health
+    public Sprite healthBar3;  // Full health
     private SpriteRenderer spriteRenderer;
-    public PlayerBody playerBodyScript;
-    public GameManager gameManagerBody;
+
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        UpdateHealthSprite();
+        UpdateHealthSprite(GameManager.instance.health);
     }
 
     // Update is called once per frame
-    void Update()
+    
+   void Update()
     {
-        
+        UpdateHealthSprite(GameManager.instance.health);
     }
 
-    public void UpdateHealthSprite()
+    public void UpdateHealthSprite( int health)
     {
-        switch (gameManagerBody.health)
+        
+
+        switch (health)
         {
             case 3:
                 spriteRenderer.sprite = healthBar3;
@@ -43,7 +45,7 @@ public class UIHealth : MonoBehaviour
             case 0:
             default:
                 spriteRenderer.sprite = healthBar0;
-                if (gameManagerBody.health <= 0)
+                if (health <= 0)
                 {
                     DestroyPlayer();
                 }

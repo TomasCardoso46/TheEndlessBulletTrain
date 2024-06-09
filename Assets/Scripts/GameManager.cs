@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
 
     public int strikes = 0; // Number of strikes
     public int health = 0;
+    public int gualter = 0;
     public SpriteRenderer playerSpriteRenderer;
     public GameObject playerPrefab;
     public PlayerBody playerscript;
     void Awake()
     {
+        health -= gualter;
         // Ensure only one instance of GameManager exists
         if (instance == null)
         {
@@ -29,7 +31,8 @@ public class GameManager : MonoBehaviour
     public void LoseHealth()
     {
         health -= 1;
+        gualter ++;
         health = Mathf.Clamp(health, 0, 3);  // Ensure health does not go below 0
-        playerscript.uiheatlh.UpdateHealthSprite();
+        
     }
 }

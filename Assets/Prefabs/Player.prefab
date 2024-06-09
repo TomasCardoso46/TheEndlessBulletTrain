@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 8
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.9837489, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4961104747289924926}
   flashInterval: 0.5
   duration: 3
-  SpawnPoint: {fileID: 0}
+  SpawnPoint: {fileID: 4924379617680351956}
   objectToSpawn: {fileID: 4638431256998197294, guid: 5898b205ebfa0704d92206665b7a5182, type: 3}
   spawnInterval: 10
 --- !u!1 &2632625164818914377
@@ -270,6 +270,7 @@ Transform:
   - {fileID: 8458018532753753470}
   - {fileID: 5309022945545566934}
   - {fileID: 6321204601907068279}
+  - {fileID: 4924379617680351956}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-4606433325895085815
@@ -303,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   playerRb: {fileID: 2427240999126990486}
+  audioScript: {fileID: 0}
 --- !u!114 &6392565637204106373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,9 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742bcf256c4a98c4fbe5f98946c53e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  strikes: 3
-  healthBar: {fileID: 0}
+  uiheatlh: {fileID: 0}
+  gameManagerScript: {fileID: 0}
   CRTScript: {fileID: 0}
 --- !u!212 &5466790996660397378
 SpriteRenderer:
@@ -492,3 +493,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &7924063005385815519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4924379617680351956}
+  m_Layer: 0
+  m_Name: SpawnPica
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4924379617680351956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924063005385815519}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -72.9, y: -0.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2951748425596987980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

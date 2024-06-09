@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8f476cb57b5ad8649aa12b607dbba019
+guid: 4d7a7c12769e763488714b1b6d94d20b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_0
+      name: PlayerSprite_Roll_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5302d9e9b61db8446914df19ff650def
+      internalID: 1345956811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSprite_Roll_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebaa39c4034db1a4aa30ad3c642541b7
+      internalID: 869100002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSprite_Roll_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d35dc934c0d1c647ad4ec6ecbfc66c7
+      internalID: 127211335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSprite_Roll_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fcea2dc147002c46a91aecbff3a670c
+      internalID: -669501973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSprite_Roll_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b131d06d91bd948a66c9d81cc0066f
+      internalID: -1428870028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSprite_Roll_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949667bd5856282408ec9cbb980eae90
+      internalID: 542249529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSprite_Roll_6
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6756ee18ecc1e2a48b84f77733101025
-      internalID: 296636955
+      spriteID: 2841dc0e4d218834f89e081c2ade9607
+      internalID: 702814215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_1
+      name: PlayerSprite_Roll_7
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25ba0ce1b1c1f654993acf7df5c10c56
-      internalID: -47970997
+      spriteID: e603fe6d60951e7418e4e91cf433c1c5
+      internalID: -1508303022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_2
+      name: PlayerSprite_Roll_8
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f53a762817c850458242e75651700b7
-      internalID: -739513117
+      spriteID: 83983d80012d4e040a6ad77d7b85d89f
+      internalID: 1959875423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_3
+      name: PlayerSprite_Roll_9
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baaa00108e688584e9a66996e68e5258
-      internalID: -1265640785
+      spriteID: 58730d8348b0ce74a95ef2fea93191da
+      internalID: -1604117435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_4
+      name: PlayerSprite_Roll_10
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9326cd67e5d9e6f4a991f4fb1ce7f80b
-      internalID: 1789133024
+      spriteID: deaa22396ecf2f54aa0caf08762fb122
+      internalID: 129775378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_5
+      name: PlayerSprite_Roll_11
       rect:
         serializedVersion: 2
         x: 160
@@ -242,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aab13bea27217c148bd89e30993a874f
-      internalID: 1620725393
+      spriteID: fdc13ba2bd65ccd4b8c800293788ff5c
+      internalID: -257578124
       vertices: []
       indices: 
       edges: []
@@ -259,12 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MeleeEnemySprite_Attack_0: 296636955
-      MeleeEnemySprite_Attack_1: -47970997
-      MeleeEnemySprite_Attack_2: -739513117
-      MeleeEnemySprite_Attack_3: -1265640785
-      MeleeEnemySprite_Attack_4: 1789133024
-      MeleeEnemySprite_Attack_5: 1620725393
+      PlayerSprite_Roll_0: 1345956811
+      PlayerSprite_Roll_1: 869100002
+      PlayerSprite_Roll_10: 129775378
+      PlayerSprite_Roll_11: -257578124
+      PlayerSprite_Roll_2: 127211335
+      PlayerSprite_Roll_3: -669501973
+      PlayerSprite_Roll_4: -1428870028
+      PlayerSprite_Roll_5: 542249529
+      PlayerSprite_Roll_6: 702814215
+      PlayerSprite_Roll_7: -1508303022
+      PlayerSprite_Roll_8: 1959875423
+      PlayerSprite_Roll_9: -1604117435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8f476cb57b5ad8649aa12b607dbba019
+guid: 90bd94c1778f9b3409029baab6a47f79
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_0
+      name: PlayerSprite_Death_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6756ee18ecc1e2a48b84f77733101025
-      internalID: 296636955
+      spriteID: ce341404f6b00a54dbac8298d36bbb59
+      internalID: 2086832383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_1
+      name: PlayerSprite_Death_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25ba0ce1b1c1f654993acf7df5c10c56
-      internalID: -47970997
+      spriteID: 3935fb752350160438aad9e693c8ddff
+      internalID: 958797091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_2
+      name: PlayerSprite_Death_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f53a762817c850458242e75651700b7
-      internalID: -739513117
+      spriteID: cdd8b6f83d2ca354b8a4af6c4c857c8b
+      internalID: 201023836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_3
+      name: PlayerSprite_Death_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baaa00108e688584e9a66996e68e5258
-      internalID: -1265640785
+      spriteID: 10037b0abad5ce143b06485fea2bd4ec
+      internalID: -1947853673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_4
+      name: PlayerSprite_Death_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9326cd67e5d9e6f4a991f4fb1ce7f80b
-      internalID: 1789133024
+      spriteID: b2961b6791aa6814e8e51bc28ae29cf7
+      internalID: 532821848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MeleeEnemySprite_Attack_5
+      name: PlayerSprite_Death_5
       rect:
         serializedVersion: 2
         x: 160
@@ -242,8 +242,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aab13bea27217c148bd89e30993a874f
-      internalID: 1620725393
+      spriteID: 5adbfeb51bf758644b6333c78751d32c
+      internalID: -893870548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSprite_Death_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749d63d837fa92746b5382b6b2ebba29
+      internalID: -119660595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerSprite_Death_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb75effce2d35a4cbc8aa8b0cd361c6
+      internalID: 709816823
       vertices: []
       indices: 
       edges: []
@@ -259,12 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MeleeEnemySprite_Attack_0: 296636955
-      MeleeEnemySprite_Attack_1: -47970997
-      MeleeEnemySprite_Attack_2: -739513117
-      MeleeEnemySprite_Attack_3: -1265640785
-      MeleeEnemySprite_Attack_4: 1789133024
-      MeleeEnemySprite_Attack_5: 1620725393
+      PlayerSprite_Death_0: 2086832383
+      PlayerSprite_Death_1: 958797091
+      PlayerSprite_Death_2: 201023836
+      PlayerSprite_Death_3: -1947853673
+      PlayerSprite_Death_4: 532821848
+      PlayerSprite_Death_5: -893870548
+      PlayerSprite_Death_6: -119660595
+      PlayerSprite_Death_7: 709816823
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

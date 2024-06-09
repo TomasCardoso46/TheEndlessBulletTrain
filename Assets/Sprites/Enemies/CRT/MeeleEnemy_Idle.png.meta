@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 137d0927829d9b843a8e21a4b9e8cdf9
+guid: 6c66fe5d7dca22b42a740091ad9705b6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,11 +106,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpritePlayerWalking_0
+      name: SpritePlayerIdle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e46001aa7fe3ce94bad960fc5926cd43
-      internalID: 135072891
+      spriteID: ee382f331da170f499fb17233b8aef45
+      internalID: -1879840599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritePlayerWalking_1
+      name: SpritePlayerIdle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53345cb9aa3b10e43a45a7320d50bd09
-      internalID: -1689390820
+      spriteID: aabbc274182e2b649a89528f748ae287
+      internalID: -676514991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritePlayerWalking_2
+      name: SpritePlayerIdle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14dccd9f5d1bc1843980fb0814036218
-      internalID: 1629757038
+      spriteID: 09ff02103f1cd2040af78cb7ab30f597
+      internalID: 1038202881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritePlayerWalking_3
+      name: SpritePlayerIdle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,71 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2199b2fa01759ca43b509c48d752e70f
-      internalID: 1445918192
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpritePlayerWalking_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69b9166ecd4b9e64b864406bc7cd743e
-      internalID: -850927775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpritePlayerWalking_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 606354ae2b591ae439f129df79034121
-      internalID: -1258109244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpritePlayerWalking_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4d754692c99eab4da85eb1fb55e1c5d
-      internalID: -1474719039
+      spriteID: 694d51c949072af46b1bde253211464b
+      internalID: 1446134663
       vertices: []
       indices: 
       edges: []
@@ -267,13 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpritePlayerWalking_0: 135072891
-      SpritePlayerWalking_1: -1689390820
-      SpritePlayerWalking_2: 1629757038
-      SpritePlayerWalking_3: 1445918192
-      SpritePlayerWalking_4: -850927775
-      SpritePlayerWalking_5: -1258109244
-      SpritePlayerWalking_6: -1474719039
+      SpritePlayerIdle_0: -1879840599
+      SpritePlayerIdle_1: -676514991
+      SpritePlayerIdle_2: 1038202881
+      SpritePlayerIdle_3: 1446134663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

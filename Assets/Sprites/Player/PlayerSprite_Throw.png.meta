@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6c66fe5d7dca22b42a740091ad9705b6
+guid: cccaf243d8a1054459d2218f81a7767f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 10
@@ -69,6 +69,19 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpritePlayerIdle_0
+      name: PlayerSprite_Throw_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee382f331da170f499fb17233b8aef45
-      internalID: -1879840599
+      spriteID: f89b8d8160c340147b3800c8ac027b53
+      internalID: 1313404788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritePlayerIdle_1
+      name: PlayerSprite_Throw_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aabbc274182e2b649a89528f748ae287
-      internalID: -676514991
+      spriteID: abea16dba9605c44eba81f7f1ff17e02
+      internalID: 183021583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritePlayerIdle_2
+      name: PlayerSprite_Throw_2
       rect:
         serializedVersion: 2
         x: 64
@@ -166,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09ff02103f1cd2040af78cb7ab30f597
-      internalID: 1038202881
+      spriteID: 3fb4e83902d1bf643bd36589b2b9398d
+      internalID: -1448131981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpritePlayerIdle_3
+      name: PlayerSprite_Throw_3
       rect:
         serializedVersion: 2
         x: 96
@@ -187,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 694d51c949072af46b1bde253211464b
-      internalID: 1446134663
+      spriteID: 904582a2d90861f4bacd56f4872e1255
+      internalID: -1672759169
       vertices: []
       indices: 
       edges: []
@@ -204,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpritePlayerIdle_0: -1879840599
-      SpritePlayerIdle_1: -676514991
-      SpritePlayerIdle_2: 1038202881
-      SpritePlayerIdle_3: 1446134663
+      PlayerSprite_Throw_0: 1313404788
+      PlayerSprite_Throw_1: 183021583
+      PlayerSprite_Throw_2: -1448131981
+      PlayerSprite_Throw_3: -1672759169
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

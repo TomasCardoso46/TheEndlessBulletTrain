@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: gameManagerScript
       value: 
       objectReference: {fileID: 1938232027}
+    - target: {fileID: 134163823251174806, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4638431256998197294, guid: 0f7d52d5cdd71d14f8f66d5f19851aaa, type: 3}
       propertyPath: m_Name
       value: Boss

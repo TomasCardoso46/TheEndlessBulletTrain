@@ -9,6 +9,7 @@ public class FollowPlayer : MonoBehaviour
     public Rigidbody2D enemyRb;
     private Transform playerTransform;
     public PlayerMovement playerMovement;
+    public Audio audioScript;
     private PlayerBody PlayerBodyScript = null;
     public float contactTimeThreshold = 3.0f;
     [SerializeField] public float contactTimer = 0.0f;
@@ -53,7 +54,7 @@ public class FollowPlayer : MonoBehaviour
             if (contactTimer >= contactTimeThreshold)
             {         
                 resetTimer();
-                
+                audioScript.PlayerHit();
                 PlayerBodyScript.loseHealth();
                 ApplyKnockbackToPlayer();
                 animator.SetBool("IsAttacking", false);

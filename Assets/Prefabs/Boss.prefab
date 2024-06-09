@@ -180,6 +180,8 @@ MonoBehaviour:
   SpawnPoint: {fileID: 5850325604714815819}
   speed: 5
   knife: {fileID: 7016542042611341071, guid: e8d9f7df6b5084342b35ac2246830287, type: 3}
+  knifeDistance: 15
+  fireRateThreshold: 1.5
 --- !u!70 &-6338448481781528878
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikes: 0
+  health: 0
+  gualter: 0
   playerSpriteRenderer: {fileID: 5466790996660397378, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
   playerPrefab: {fileID: 7331595456998157782, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
-  healthBar: {fileID: 0}
+  playerscript: {fileID: 0}
 --- !u!114 &2711221804174569691
 MonoBehaviour:
   m_ObjectHideFlags: 0

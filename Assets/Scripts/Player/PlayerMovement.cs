@@ -24,7 +24,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isRolling)
         {
-            return;
+            animator.SetBool("isRolling", true);
+        }
+        else
+        {
+            animator.SetBool("isRolling", false);
         }
 
         // Get horizontal input

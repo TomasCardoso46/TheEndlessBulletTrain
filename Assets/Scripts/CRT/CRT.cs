@@ -47,9 +47,9 @@ public class FollowPlayer : MonoBehaviour
         {
             contactTimer += Time.deltaTime;
 
-            if (contactTimer >= contactTimeThreshold - 3f)
+            if (contactTimer >= contactTimeThreshold - 0.9f)
             {
-                animator.SetBool("IsAttacking", true);
+                animator.SetTrigger("Attack");
             }
 
             if (contactTimer >= contactTimeThreshold)
@@ -58,7 +58,6 @@ public class FollowPlayer : MonoBehaviour
                 audioScript.PlayerHit();
                 gameManagerScript.LoseHealth();
                 ApplyKnockbackToPlayer();
-                animator.SetBool("IsAttacking", false);
                 return;   
             }
         }

@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class DestroyOnParryZoneContact : MonoBehaviour
 {
     [SerializeField] private float misfortune;
+
+    public Animator animator;
     public FollowPlayer CTRScript;
     public Image MisfortuneLeft;
     public Image MisfortuneRight;
@@ -27,6 +29,7 @@ public class DestroyOnParryZoneContact : MonoBehaviour
 
         if (misfortune >= 4)
         {
+            ///animator.SetBool("IsAlive", false);
             Destroy(gameObject);
         }
     }

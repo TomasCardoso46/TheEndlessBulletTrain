@@ -42,6 +42,7 @@ public class BossDeath : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
         Debug.Log($"Triggered with: {other.name}"); // Log which object is triggering the event
         Debug.Log($"Other object's tag: {other.tag}");
 
@@ -69,21 +70,21 @@ public class BossDeath : MonoBehaviour
                 }
             }
 
-            ApplyKnockback(other);
+            bossscript.ApplyKnockbackToBoss(knockbackDirection);
             misfortune += damage;
             UpdateUI();
             bossscript.resetTimer();
         }
         else if (other.CompareTag("ThrowableExtintor"))
         {
-            ApplyKnockback(other);
+            bossscript.ApplyKnockbackToBoss(knockbackDirection);
             misfortune += 1;
             
             UpdateUI();
         }
         else if (other.CompareTag("ThrowableMala"))
         {
-            ApplyKnockback(other);
+            bossscript.ApplyKnockbackToBoss(knockbackDirection);
             misfortune += 1;
             UpdateUI();
             
@@ -94,25 +95,12 @@ public class BossDeath : MonoBehaviour
         }
     }
 
-    private void ApplyKnockback(Collider2D other)
-    {
-        Debug.Log("Contact with ParryZone detected.");
-        bossscript.resetTimer();
-        bossscript.EKBCounter = bossscript.EKBTotalTime;
-
-        if (other.transform.position.x < transform.position.x)
-        {
-            bossscript.EKnockFromRight = true;
-        }
-        else
-        {
-            bossscript.EKnockFromRight = false;
-        }
-    }
+    
 
     public void MisfortuneApplication()
     {
         misfortune += 1;
         UpdateUI();
     }
+    
 }

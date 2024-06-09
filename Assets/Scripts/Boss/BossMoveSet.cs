@@ -3,12 +3,13 @@ using UnityEngine;
 public class BossMoveSet : MonoBehaviour
 {
     public float chargeSpeed = 5.0f; // Speed for the charged attack
+    public int initialSpeed = 3;
     private Transform playerTransform;
     private Animator animator;
     private bool isCharging = false; // Flag to indicate if the boss is performing a charged attack
     private PlayerBody PlayerBodyScript = null;
     private Parry playerParryScript;
-
+    public BossDeath bossDeathScript;
     public Transform SpawnPoint;
     public int speed;
     public GameObject knife;
@@ -64,6 +65,7 @@ public class BossMoveSet : MonoBehaviour
         Vector3 direction = playerTransform.position - transform.position;
         direction.Normalize();
         transform.position += direction * chargeSpeed * Time.deltaTime;
+        speed = initialSpeed;
 
         if (animator != null)
         {
@@ -91,6 +93,7 @@ public class BossMoveSet : MonoBehaviour
             {
                 Debug.Log("Player parried the charged attack!");
                 // Nullify the damage and stop the charge
+                bossDeathScript.MisfortuneApplication();
                 isCharging = false;
                 if (animator != null)
                 {

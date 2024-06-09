@@ -9,7 +9,7 @@ public class Parallax : MonoBehaviour
     public float parallaxEffect;
     public float speed; // New variable for automatic movement speed
 
-    private Transform[] layers;
+    private List<Transform> layers;
 
     // Start is called before the first frame update
     void Start()
@@ -17,14 +17,14 @@ public class Parallax : MonoBehaviour
         startpos = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
 
-        // Create an array of three layers
-        layers = new Transform[3];
-        layers[0] = transform;
+        // Create a list of layers
+        layers = new List<Transform>();
+        layers.Add(transform);
         for (int i = 1; i < 3; i++)
         {
             GameObject layer = Instantiate(gameObject, new Vector3(startpos + length * i, transform.position.y, transform.position.z), Quaternion.identity);
             layer.transform.parent = transform.parent;
-            layers[i] = layer.transform;
+            layers.Add(layer.transform);
         }
     }
 
@@ -35,9 +35,9 @@ public class Parallax : MonoBehaviour
         float dist = (cam.transform.position.x * parallaxEffect);
 
         // Move the sprites to the left over time
-        for (int i = 0; i < layers.Length; i++)
+        foreach (var layer in layers)
         {
-            layers[i].position = new Vector3(layers[i].position.x - speed * Time.deltaTime, layers[i].position.y, layers[i].position.z);
+            layer.position = new Vector3(layer.position.x - speed * Time.deltaTime, layer.position.y, layer.position.z);
         }
 
         // Reposition the layers when necessary
@@ -56,22 +56,20 @@ public class Parallax : MonoBehaviour
         if (direction == 1)
         {
             Transform leftmost = layers[0];
-            for (int i = 0; i < layers.Length - 1; i++)
-            {
-                layers[i] = layers[i + 1];
-            }
-            layers[layers.Length - 1] = leftmost;
-            leftmost.position = new Vector3(layers[layers.Length - 2].position.x + length, leftmost.position.y, leftmost.position.z);
+            layers.RemoveAt(0);
+            Destroy(leftmost.gameObject);
+            GameObject newLayer = Instantiate(gameObject, new Vector3(layers[layers.Count - 1].position.x + length, layers[0].position.y, layers[0].position.z), Quaternion.identity);
+            newLayer.transform.parent = transform.parent;
+            layers.Add(newLayer.transform);
         }
         else if (direction == -1)
         {
-            Transform rightmost = layers[layers.Length - 1];
-            for (int i = layers.Length - 1; i > 0; i--)
-            {
-                layers[i] = layers[i - 1];
-            }
-            layers[0] = rightmost;
-            rightmost.position = new Vector3(layers[1].position.x - length, rightmost.position.y, rightmost.position.z);
+            Transform rightmost = layers[layers.Count - 1];
+            layers.RemoveAt(layers.Count - 1);
+            Destroy(rightmost.gameObject);
+            GameObject newLayer = Instantiate(gameObject, new Vector3(layers[0].position.x - length, layers[0].position.y, layers[0].position.z), Quaternion.identity);
+            newLayer.transform.parent = transform.parent;
+            layers.Insert(0, newLayer.transform);
         }
     }
 }

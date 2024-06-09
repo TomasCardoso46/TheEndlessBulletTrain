@@ -414,8 +414,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.5987, y: -9.2192}
-  m_SizeDelta: {x: 32.1237, y: 21.7416}
+  m_AnchoredPosition: {x: 2.5282, y: -9.2192}
+  m_SizeDelta: {x: 50.5411, y: 21.7416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203182929
 MonoBehaviour:
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _img: {fileID: 203182930}
-  _x: 0
+  _x: 0.05
   _y: 0
 --- !u!114 &203182930
 MonoBehaviour:
@@ -647,8 +647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.5987, y: -9.2192}
-  m_SizeDelta: {x: 32.1237, y: 21.7416}
+  m_AnchoredPosition: {x: 2.5282, y: -9.88}
+  m_SizeDelta: {x: 50.541, y: 21.7416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564837751
 MonoBehaviour:
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _img: {fileID: 564837752}
-  _x: 0
+  _x: 3
   _y: 0
 --- !u!114 &564837752
 MonoBehaviour:
@@ -1159,8 +1159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.5987, y: -9.2192}
-  m_SizeDelta: {x: 32.1237, y: 21.7416}
+  m_AnchoredPosition: {x: 2.5283, y: -9.2192}
+  m_SizeDelta: {x: 50.541, y: 21.7416}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165184223
 MonoBehaviour:
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _img: {fileID: 1165184224}
-  _x: 0
+  _x: 0.1
   _y: 0
 --- !u!114 &1165184224
 MonoBehaviour:
@@ -2123,7 +2123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155925581294872259, guid: e7765bcf8f184724990ab89cff46afd1, type: 3}
       propertyPath: orthographic size
-      value: 8.966429
+      value: 5.4710584
       objectReference: {fileID: 0}
     - target: {fileID: 5896050400507452650, guid: e7765bcf8f184724990ab89cff46afd1, type: 3}
       propertyPath: target

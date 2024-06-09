@@ -125,6 +125,7 @@ MonoBehaviour:
   followDistance: 1.2
   enemyRb: {fileID: 4592593945080863225}
   playerMovement: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+  gameManagerScript: {fileID: 0}
   audioScript: {fileID: 0}
   contactTimeThreshold: 3
   contactTimer: 0

@@ -3,9 +3,9 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     public Animator animator;
-    public float speed = 5.0f;
+    public float speed = 3.0f;
     public float followDistance = 0.5f;
-    public float chargeDistance = 5.0f; // Distance at which the boss initiates a charged attack
+    public float chargeDistance = 3f; // Distance at which the boss initiates a charged attack
     public Rigidbody2D enemyRb;
     private Transform playerTransform;
     public PlayerMovement playerMovement;

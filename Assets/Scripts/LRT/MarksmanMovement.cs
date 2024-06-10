@@ -53,7 +53,6 @@ public class MarksmanMovement : MonoBehaviour
 
             if (distance > followDistance) 
             {
-                animator.SetBool("isMoving", true);
                 direction.Normalize();
                 transform.position += direction * speed * Time.deltaTime;
                 fireRateBom = 0;
@@ -62,7 +61,6 @@ public class MarksmanMovement : MonoBehaviour
             if (distance <= followDistance)
             {
                 TimeIncrease();
-                animator.SetBool("isMoving", false);
 
                 if (fireRateBom >= fireRateThreshold)
                 {

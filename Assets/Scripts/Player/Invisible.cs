@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ToggleVisibility : MonoBehaviour
 {
+    public HidingPlaceDetector hidinplacedetec;
     private Renderer rend;
     private bool isVisible = true;
     public bool isInHidingPlace = false;
@@ -53,6 +54,7 @@ public class ToggleVisibility : MonoBehaviour
         // If the object is now invisible, print a message
         else
         {
+            hidinplacedetec.hiddenAnimation();
             Debug.Log("Object is now invisible.");
         }
     }

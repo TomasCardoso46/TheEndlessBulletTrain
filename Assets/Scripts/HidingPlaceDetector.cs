@@ -4,7 +4,7 @@ public class HidingPlaceDetector : MonoBehaviour
 {
     // Reference to the ToggleVisibility script attached to the object you want to toggle visibility for
     public ToggleVisibility toggleVisibilityScript;
-
+    public Animator animator;
     private void Start()
     {
         if (toggleVisibilityScript == null)
@@ -13,6 +13,10 @@ public class HidingPlaceDetector : MonoBehaviour
         }
     }
 
+    public void hiddenAnimation()
+    {
+        animator.SetBool("isHiden", true);
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the object entering the trigger is the player

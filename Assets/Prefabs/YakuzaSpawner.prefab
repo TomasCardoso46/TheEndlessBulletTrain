@@ -110,8 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPoint1: {fileID: 3979334969604085802}
-  SpawnPoint2: {fileID: 3837652700101006188}
-  objectToSpawn: {fileID: 4638431256998197294, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+  objectToSpawn: {fileID: 6109100265650869312, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
   numberOfEnemies: 0
 --- !u!61 &6368919171307388556
 BoxCollider2D:

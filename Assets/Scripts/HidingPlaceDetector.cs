@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class HidingPlaceDetector : MonoBehaviour
 {
+    public Animator animator;
+
     // Reference to the ToggleVisibility script attached to the object you want to toggle visibility for
     public ToggleVisibility toggleVisibilityScript;
 
@@ -13,6 +15,7 @@ public class HidingPlaceDetector : MonoBehaviour
             // Set isInHidingPlace to true when the player enters the trigger
             toggleVisibilityScript.isInHidingPlace = true;
             Debug.Log("Player entered hiding place.");
+            animator.SetBool("isHiden", true);
         }
     }
 
@@ -24,6 +27,7 @@ public class HidingPlaceDetector : MonoBehaviour
             // Set isInHidingPlace to false when the player exits the trigger
             toggleVisibilityScript.isInHidingPlace = false;
             Debug.Log("Player left hiding place.");
+            animator.SetBool("isHiden", false);
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MarksmanMovement : MonoBehaviour
 {
+    public Animator animator;
     public Transform SpawnPoint;
     public Audio audioScript;
     public float speed = 5.0f;
@@ -43,17 +44,16 @@ public class MarksmanMovement : MonoBehaviour
             // Flip the shooter to face the player along the X-axis
             if (direction.x > 0)
             {
-                
                 transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
             else
             {
-                
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }
 
-            if (distance > followDistance)
+            if (distance > followDistance) 
             {
+                animator.SetBool("isMoving", true);
                 direction.Normalize();
                 transform.position += direction * speed * Time.deltaTime;
                 fireRateBom = 0;
@@ -62,6 +62,7 @@ public class MarksmanMovement : MonoBehaviour
             if (distance <= followDistance)
             {
                 TimeIncrease();
+                animator.SetBool("isMoving", false);
 
                 if (fireRateBom >= fireRateThreshold)
                 {
@@ -86,6 +87,7 @@ public class MarksmanMovement : MonoBehaviour
 
     void ShootPlayer()
     {
+        animator.SetTrigger("Shoot");
         audioScript.ShootLRT();
         Vector3 shootDirection = (playerTransform.position - SpawnPoint.position).normalized;
         GameObject bulletInstance = Instantiate(bullet, SpawnPoint.position, Quaternion.identity);

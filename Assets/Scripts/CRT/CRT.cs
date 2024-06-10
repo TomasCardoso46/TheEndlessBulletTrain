@@ -47,13 +47,18 @@ public class FollowPlayer : MonoBehaviour
         {
             contactTimer += Time.deltaTime;
 
-            if (contactTimer >= contactTimeThreshold - 0.9f)
+            if (contactTimer >= contactTimeThreshold - 1.5f)
             {
+                animator.SetBool("isAttacking", true);
+            }
+            if (contactTimer >= contactTimeThreshold - 0.1f)
+            {
+                animator.SetBool("isAttacking", false);
                 animator.SetTrigger("Attack");
             }
 
             if (contactTimer >= contactTimeThreshold)
-            {         
+            {
                 resetTimer();
                 audioScript.PlayerHit();
                 gameManagerScript.LoseHealth();
@@ -64,6 +69,7 @@ public class FollowPlayer : MonoBehaviour
         else
         {
             resetTimer();
+            animator.SetBool("isAttacking", false);
         }
         
         if (!isBeingKnockedBack) // Check if the enemy is not being knocked back

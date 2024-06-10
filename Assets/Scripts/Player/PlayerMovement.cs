@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isRolling;
     private float rollPower = 5f;
     private float rollTime = 0.5f;
-    private float rollCooldown = 1f;
+    private float rollCooldown = 0.5f;
 
     void Start()
     {

@@ -1931,6 +1931,10 @@ PrefabInstance:
       propertyPath: placeDownExtintor
       value: 
       objectReference: {fileID: 7697197777443490995, guid: b1472382515a6c54994e9f0f08debed4, type: 3}
+    - target: {fileID: -4606433325895085815, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
+      propertyPath: parryCooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 39103587431929697, guid: 1dda70006174c524796c1f148b1865fb, type: 3}
       propertyPath: KBCounter
       value: 0

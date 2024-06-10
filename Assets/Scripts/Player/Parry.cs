@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,8 +10,8 @@ public class Parry : MonoBehaviour
     private bool canParry = true; // Bool to track if parry is available
     private bool isParrying = false; // Bool to track if parry is currently active
     public GrabObject GrabScript;
-    //public DestroyOnParryZoneContact CRTD;
     public FollowPlayer CRTScript;
+    public float parryCooldown = 2f; // Cooldown duration in seconds
 
     void Start()
     {
@@ -45,8 +44,10 @@ public class Parry : MonoBehaviour
         // Instantiate the object at the calculated position
         Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
 
-        yield return new WaitForSeconds(1f); // Wait for 1 second
-        isParrying = false; // Reset isParrying to false after the cooldown
+        yield return new WaitForSeconds(1f); // Wait for 1 second (duration of the parry action)
+        isParrying = false; // Reset isParrying to false after the parry action
+
+        yield return new WaitForSeconds(parryCooldown - 1f); // Wait for the remaining cooldown duration
         canParry = true; // Reset canParry to true after the cooldown
     }
 }

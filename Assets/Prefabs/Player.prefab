@@ -290,6 +290,7 @@ MonoBehaviour:
   playerTransform: {fileID: 5309022945545566934}
   GrabScript: {fileID: -5344070472957621020}
   CRTScript: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
+  parryCooldown: 2
 --- !u!114 &39103587431929697
 MonoBehaviour:
   m_ObjectHideFlags: 0

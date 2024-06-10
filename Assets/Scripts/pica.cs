@@ -6,10 +6,7 @@ public class pica : MonoBehaviour
     public SpriteRenderer prefabSpriteRenderer; // Reference to the SpriteRenderer of the prefab to blink
     [SerializeField] private float speed = 5f;
 
-    void Start()
-    {
-        Destroy(gameObject, 5f);
-    }
+    
 
     void Update()
     {

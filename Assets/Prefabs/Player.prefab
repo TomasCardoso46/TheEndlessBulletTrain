@@ -290,7 +290,7 @@ MonoBehaviour:
   playerTransform: {fileID: 5309022945545566934}
   GrabScript: {fileID: -5344070472957621020}
   CRTScript: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
-  parryCooldown: 2
+  parryCooldown: 1
 --- !u!114 &39103587431929697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,8 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiheatlh: {fileID: 0}
-  gameManagerScript: {fileID: 0}
-  CRTScript: {fileID: 0}
+  CRTScript: {fileID: 130990685479332940, guid: 1b84fe85c5a5f374086357799e4938c1, type: 3}
 --- !u!212 &5466790996660397378
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MySceneManager : MonoBehaviour
 {
     public static MySceneManager instance;
+    public int level = 1;
 
     private void Awake()
     {
@@ -20,13 +21,14 @@ public class MySceneManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if (NoObjectsWithTag("CRT"))
+        if (NoObjectsWithTag("CRT") && level == 1)
         {
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+            level = 2; // Update level first before loading the scene
+            SceneManager.LoadScene(2);
         }
-        else
+        else if (NoObjectsWithTag("CRT") && level == 2)
         {
-            Debug.LogError("Cannot proceed to the next level. Objects with tag 'CRT' still exist.");
+            SceneManager.LoadScene(4);
         }
     }
 
@@ -42,11 +44,17 @@ public class MySceneManager : MonoBehaviour
 
     public void Credits()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 
     public void BackCredits()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void StartGame()
+    {
+        level = 1; // Reset the level when starting the game
+        SceneManager.LoadScene(1);
     }
 }

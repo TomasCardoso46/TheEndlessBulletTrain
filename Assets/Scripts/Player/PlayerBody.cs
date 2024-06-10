@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class PlayerBody : MonoBehaviour
 {
     public UIHealth uiheatlh;
-    public GameManager gameManagerScript;
+    private GameManager gameManagerScript;
 
     [SerializeField]
     private FollowPlayer CRTScript;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        gameManagerScript = GameManager.instance;
     }
 
     private void Update()

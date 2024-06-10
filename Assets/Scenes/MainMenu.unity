@@ -752,7 +752,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1592445964}
         m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
-        m_MethodName: NextLevel
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -932,6 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bdaf8f2b613d694b88b587cfbcc1bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
 --- !u!224 &1592445965
 RectTransform:
   m_ObjectHideFlags: 0
